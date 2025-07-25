@@ -1,12 +1,12 @@
 
-from fastapi import APIRouter, Response, status, Request, Depends
+from fastapi import APIRouter, Response, Request, Depends
 from src.auth import schemas
 from src.auth import service
 from src.auth.dependencies import get_current_user
 
 router = APIRouter()
 
-@router.post('/register', status_code=status.HTTP_201_CREATED, response_model=schemas.UserResponse)
+@router.post('/register',response_model=schemas.UserResponse)
 async def user_register(payload: schemas.CreateUserSchema):
     return await service.user_register(payload)
 

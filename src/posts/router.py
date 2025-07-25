@@ -1,19 +1,35 @@
-from fastapi import APIRouter
-from src.posts.dependencies import valid_owned_post
-from src.posts.models import PostResponseSchema
-from src.posts.schemas import PostUpdateSchema
+from fastapi import APIRouter, Depends
+from src.posts.schemas import PostResponseSchema
+from src.posts.schemas import PostUpdateSchema, CreatePostsSchema
 from src.posts import service
+from src.auth.dependencies import get_current_user
+
+from typing import List
 
 router = APIRouter()
 
-@router.post("/user/{user_id}/posts/{post_id}", response_model=PostResponseSchema)
-async def get_user_post(post: dict = Depends(valid_owned_post)):
-    return post   
+@router.put("/{post_id}", response_model=PostResponseSchema)
+async def update_post(post_id: str, payload: PostUpdateSchema, current_user: dict = Depends(get_current_user)):
+    return await service.update_post(post_id, payload)
 
-@router.put("/posts/{post_id}")
-async def update_post(payload: PostUpdateSchema, post: dict = Depends(valid_owned_post)):
-    return await service.update_post(payload, post)
+@router.get("/{post_id}", response_model=PostResponseSchema)
+async def get_post_by_id(post_id: str):
+    return await service.get_post_by_id(post_id)
 
-@router.get("/posts/{post_id}", response_model=PostResponseSchema)
-async def get_post(post: dict = Depends(valid_post_id)):
-    return await service.get_post_by_id(post)
+
+@router.get("/", response_model=List[PostResponseSchema])
+async def get_all_posts():
+    return await service.get_all_posts()
+
+@router.get("/title/{title}", response_model=PostResponseSchema)
+async def get_post_by_title(title: str):
+    return await service.get_post_by_title(title)
+
+@router.delete("/{post_id}")
+async def delete_post(post_id: str, current_user: dict = Depends(get_current_user)):
+    return await service.delete_post(post_id)
+
+@router.post("/", response_model=PostResponseSchema)
+async def create_post(payload: CreatePostsSchema, current_user: dict = Depends(get_current_user)):
+    user_id = current_user["user_id"]
+    return await service.create_post(payload, user_id)

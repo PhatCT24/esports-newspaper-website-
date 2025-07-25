@@ -4,12 +4,11 @@ from typing import Literal, Optional
 
 
 class PostsBaseSchema(BaseModel):
-    title: Field(..., min_length = 10)
+    title: str = Field(..., min_length = 10)
     category: str
     subcategory: str
     description: str
     content: str
-    status: Literal["uploaded", "edited", "deleted"]
     image: str
     user_id: str
     post_id:str
@@ -19,13 +18,16 @@ class PostsBaseSchema(BaseModel):
     class Config:
         from_attributes = True
 
-class CreatePostsSchema(PostsBaseSchema):
-    title: str = Field(..., min_length = 10)
+class CreatePostsSchema(BaseModel):
+    title: str = Field(..., min_length=10)
     category: str
     subcategory: str
     description: str
     content: str
     image: str
+    
+    class Config:
+        from_attributes = True
 
 
 class PostUpdateSchema(PostsBaseSchema):
@@ -39,6 +41,15 @@ class PostUpdateSchema(PostsBaseSchema):
 
 class PostResponseSchema(BaseModel):
     post_id: str
+    title: str
+    category: str
+    subcategory: str
+    description: str
+    content: str
+    image: str
+    user_id: str
     created_at: datetime
     updated_at: datetime
 
+    class Config:
+        from_attributes = True

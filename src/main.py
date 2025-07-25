@@ -15,7 +15,8 @@ class NoCacheStaticFiles(StaticFiles):
 
 
 from src.config import settings
-from src.auth.router import router
+from src.auth.router import router as auth_router
+from src.posts.router import router as posts_router
 
 app = FastAPI()
 
@@ -45,7 +46,8 @@ async def homepage(request: Request):
 async def login_page(request: Request):
     return templates.TemplateResponse("login.html", {"request": request})
 
-app.include_router(router, prefix='/auth', tags=['auth'])
+app.include_router(auth_router, prefix='/auth', tags=['auth'])
+app.include_router(posts_router, prefix='/posts', tags=['posts'])
 
 @app.get("/otp", response_class=HTMLResponse)
 async def otp_page(request: Request):
