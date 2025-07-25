@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/asset/homepage-assets/page-favicon.png" type="image/x-icon">
+    <script src="../fe-script/login.js"></script>
+    <title>Welcome</title>
+</head>
+<body> 
+    <div class="container">
+        <div id= "login-box" class="form-box loginbox">
+            <h2>Sign In</h2>
+            <p id="error-message" class="error-message"></p>
+                <form id="login-form" class="login-form">
+                    <div class="inputbox">    
+                        <input id="username" class="username" name="email" placeholder="Email" required>
+                        <input id="password" type="password" class="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox"> Remember me</label>
+                        <a class="forgot-password" href="forgot-password.html">Forgot password?</a>
+                    </div>
+                    <button class="btn login-button" type="submit">Login</button>
+                
+                <div class="other-signin-label">
+                    <label>or you can sign in with</label>
+                </div>
+                <div class="other-signin-button-block">  
+                    <ul>
+                        <a href="#" class="other-signin-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="60" height="60" viewBox="0 0 48 48">
+                                <circle cx="24" cy="24" r="24" fill="#d32f2f"></circle><polygon fill="#fff" points="25.891,13.176 12.584,19.462 14.642,28.935 17.356,28.935 16.887,22.159 17.304,22.03 18.936,28.935 21.756,28.935 21.652,20.681 22.068,20.552 23.495,28.935 26.481,28.935 27.185,18.965 27.601,18.835 28.34,28.935 32.288,28.935 33.678,15.07"></polygon><polygon fill="#fff" points="23.612,32.813 22.628,30.278 32.118,30.766 31.711,34.824"></polygon>
+                            </svg>
+                        </a>
+                        <a href="#" class="other-signin-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="60" height="60" viewBox="0,0,256,256">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(16,16)"><path d="M8,0c4.418,0 8,3.582 8,8c0,4.418 -3.582,8 -8,8c-4.418,0 -8,-3.582 -8,-8c0,-4.418 3.582,-8 8,-8z" fill="#dd7d53"></path><path d="M12.124,6.875c-0.285,0.009 -0.558,0.127 -0.766,0.324c-0.911,-0.62 -1.98,-0.96 -3.08,-0.984l0.52,-2.496l1.711,0.36c0.047,0.44 0.442,0.758 0.882,0.711c0.438,-0.049 0.756,-0.442 0.709,-0.882c-0.047,-0.44 -0.442,-0.758 -0.88,-0.709c-0.253,0.025 -0.48,0.173 -0.605,0.391l-1.96,-0.391c-0.133,-0.032 -0.268,0.052 -0.297,0.188c0,0.002 0,0.002 0,0.004l-0.591,2.776c-1.113,0.016 -2.198,0.36 -3.12,0.984c-0.469,-0.442 -1.209,-0.42 -1.651,0.051c-0.442,0.471 -0.42,1.209 0.053,1.651c0.091,0.085 0.196,0.16 0.313,0.211c-0.007,0.118 -0.007,0.235 0,0.353c0,1.791 2.089,3.249 4.664,3.249c2.576,0 4.664,-1.456 4.664,-3.249c0.007,-0.118 0.007,-0.234 0,-0.353c0.402,-0.2 0.655,-0.615 0.645,-1.064c-0.024,-0.644 -0.564,-1.147 -1.211,-1.125zM5.335,8.8c0,-0.442 0.358,-0.8 0.802,-0.8c0.442,0 0.8,0.358 0.8,0.8c0,0.442 -0.358,0.8 -0.8,0.8c-0.442,0 -0.802,-0.358 -0.802,-0.8zM9.971,11c-0.355,0.328 -0.983,0.616 -1.971,0.616c-0.988,0 -1.616,-0.288 -1.971,-0.616c-0.073,-0.067 -0.062,-0.227 0.031,-0.304c0.078,-0.065 0.193,-0.065 0.275,0c0.48,0.353 1.07,0.48 1.665,0.48c0.595,0 1.185,-0.127 1.665,-0.48c0.082,-0.065 0.196,-0.065 0.275,0c0.093,0.077 0.104,0.237 0.031,0.304zM9.842,9.6c-0.442,0 -0.802,-0.358 -0.802,-0.8c0.002,-0.442 0.36,-0.8 0.802,-0.8c0.442,0 0.8,0.358 0.8,0.8c0,0.442 -0.358,0.8 -0.8,0.8z" fill="#ffffff"></path></g></g>
+                                </svg>
+                        </a>
+                        <a href="#" class="other-signin-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" viewBox="0 0 1024 1024">
+                                <circle cx="512" cy="512" r="512" style="fill:#9146ff"/>
+                                <path d="M692.9 535 617 607h-76l-66.5 63v-63H389V337.2h303.9V535zM370 301.2l-95 89.9v323.8h114v89.9l95-89.9h76L730.9 553V301.2H370zM636 403h-38v107.9h38V403zm-142.5-.5h38v107.9h-38V402.5z" style="fill:#fff"/>
+                             </svg>
+                        </a>
+                        <a href="#" class="other-signin-button">
+                            <img src="../asset/homepage-assets/facebook.png" class="facebook-button">
+                        </a>
+                    </ul>
+                </div>
+            </form> 
+        </div>
+
+        <div id= "register-box" class="form-box register">
+            <h2>Register</h2>
+                <form id="register-form" autocomplete="off">
+                    <p id="error-register" class="error-message"></p>
+                <!--input field-->
+                <div class="inputbox">
+                    <input id="usernameR" type="text" class="username" name="usernameR" placeholder="Username" required>
+                    <input id="emailR" type="text" class="email" name="emailR" placeholder="Email" required>
+                    <input id="passwordR" type="password" class="password" name="passwordR" placeholder="Password" required>
+                    <input id="passwordConfirmR" type="password" class="password" name="passwordConfirmR" placeholder="Confirm Password" required>
+                </div> 
+            
+                <button type="submit" class="btn register-button">Register</button>
+                
+                <div class="other-signin-label">
+                    <label>or you can sign in with</label>
+                </div>
+                <div class="other-signin-button-block">  
+                    <ul>
+                        <a href="#" class="other-signin-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="60" height="60" viewBox="0 0 48 48">
+                                <circle cx="24" cy="24" r="24" fill="#d32f2f"></circle><polygon fill="#fff" points="25.891,13.176 12.584,19.462 14.642,28.935 17.356,28.935 16.887,22.159 17.304,22.03 18.936,28.935 21.756,28.935 21.652,20.681 22.068,20.552 23.495,28.935 26.481,28.935 27.185,18.965 27.601,18.835 28.34,28.935 32.288,28.935 33.678,15.07"></polygon><polygon fill="#fff" points="23.612,32.813 22.628,30.278 32.118,30.766 31.711,34.824"></polygon>
+                            </svg>
+                        </a>
+                        <a href="#" class="other-signin-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="60" height="60" viewBox="0,0,256,256">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(16,16)"><path d="M8,0c4.418,0 8,3.582 8,8c0,4.418 -3.582,8 -8,8c-4.418,0 -8,-3.582 -8,-8c0,-4.418 3.582,-8 8,-8z" fill="#dd7d53"></path><path d="M12.124,6.875c-0.285,0.009 -0.558,0.127 -0.766,0.324c-0.911,-0.62 -1.98,-0.96 -3.08,-0.984l0.52,-2.496l1.711,0.36c0.047,0.44 0.442,0.758 0.882,0.711c0.438,-0.049 0.756,-0.442 0.709,-0.882c-0.047,-0.44 -0.442,-0.758 -0.88,-0.709c-0.253,0.025 -0.48,0.173 -0.605,0.391l-1.96,-0.391c-0.133,-0.032 -0.268,0.052 -0.297,0.188c0,0.002 0,0.002 0,0.004l-0.591,2.776c-1.113,0.016 -2.198,0.36 -3.12,0.984c-0.469,-0.442 -1.209,-0.42 -1.651,0.051c-0.442,0.471 -0.42,1.209 0.053,1.651c0.091,0.085 0.196,0.16 0.313,0.211c-0.007,0.118 -0.007,0.235 0,0.353c0,1.791 2.089,3.249 4.664,3.249c2.576,0 4.664,-1.456 4.664,-3.249c0.007,-0.118 0.007,-0.234 0,-0.353c0.402,-0.2 0.655,-0.615 0.645,-1.064c-0.024,-0.644 -0.564,-1.147 -1.211,-1.125zM5.335,8.8c0,-0.442 0.358,-0.8 0.802,-0.8c0.442,0 0.8,0.358 0.8,0.8c0,0.442 -0.358,0.8 -0.8,0.8c-0.442,0 -0.802,-0.358 -0.802,-0.8zM9.971,11c-0.355,0.328 -0.983,0.616 -1.971,0.616c-0.988,0 -1.616,-0.288 -1.971,-0.616c-0.073,-0.067 -0.062,-0.227 0.031,-0.304c0.078,-0.065 0.193,-0.065 0.275,0c0.48,0.353 1.07,0.48 1.665,0.48c0.595,0 1.185,-0.127 1.665,-0.48c0.082,-0.065 0.196,-0.065 0.275,0c0.093,0.077 0.104,0.237 0.031,0.304zM9.842,9.6c-0.442,0 -0.802,-0.358 -0.802,-0.8c0.002,-0.442 0.36,-0.8 0.802,-0.8c0.442,0 0.8,0.358 0.8,0.8c0,0.442 -0.358,0.8 -0.8,0.8z" fill="#ffffff"></path></g></g>
+                                </svg>
+                        </a>
+                        <a href="#" class="other-signin-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60px" height="60px" viewBox="0 0 1024 1024">
+                                <circle cx="512" cy="512" r="512" style="fill:#9146ff"/>
+                                <path d="M692.9 535 617 607h-76l-66.5 63v-63H389V337.2h303.9V535zM370 301.2l-95 89.9v323.8h114v89.9l95-89.9h76L730.9 553V301.2H370zM636 403h-38v107.9h38V403zm-142.5-.5h38v107.9h-38V402.5z" style="fill:#fff"/>
+                             </svg>
+                        </a>
+                        <a href="#" class="other-signin-button">
+                            <img src="../asset/homepage-assets/facebook.png" class="facebook-button">
+                        </a>
+                    </ul>
+                </div>
+            </form> 
+        </div>
+        
+
+        <div class="toggle-box">
+            <div id="change-to-register" class="toggle-panel toggle-left">
+                <h1>Hello, Welcome!</h1>
+                <p>Don't have an account?</p>
+                <button class="btn" id="registerBtn">Register</button>
+            </div>
+
+            <div id="change-to-login" class="toggle-panel toggle-right">
+                <h1>Have an account?</h1>
+                <p>You can log in here!</p>
+                <button class="btn" id="loginBtn">Log In</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

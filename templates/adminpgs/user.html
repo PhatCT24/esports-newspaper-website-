@@ -1,0 +1,68 @@
+<script src="/fe-script/usersm.js"></script>
+
+<div class="container p-4">
+    <h2 class="mb-4">User Management</h2>
+  
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Verified</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="userTable">
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<div id="user-popup-edit" class="popup hidden">
+    <div class="popup-content">
+        <h2>Edit User Info</h2>
+        <p id="error-message"></p>
+        <form id="user-form-edit">
+          <p id="error-message"></p>
+            <label>UserID</label>
+            <input id="Euid" type="text" name="userID" disabled/>
+
+            <label>Username</label>
+            <input id="Eusername" type="text" name="username"/>
+
+            <label>Email</label>
+            <input id="Eemail" type="text" name="email" required />
+
+            <label>Role</label>
+            <select name="role" required id="Erole">
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+            </select>
+
+            <label>Verified</label>
+            <select name="status" required id="Estatus">
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+            <div class="popup-buttons">
+                <button type="submit">Submit</button>
+                <button type="button" id="close-popup-edit">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="user-popup-delete" class="popup hidden">
+    <div class="popup-content">
+        <h2>Delete this user?</h2>
+        <p id="error-message"></p>
+            <h5>Are you sure you want to delete this user?</h5>
+            <div class="popup-buttons">
+                <button type="button" id="confirm-delete">Yes</button>
+                <button type="button" id="close-popup-delete">No</button>
+            </div>
+    </div>
+</div>

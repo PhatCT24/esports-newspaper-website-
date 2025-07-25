@@ -1,0 +1,363 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    caret-color: transparent;
+    font-family: 'Roboto';
+}
+
+a{
+    text-decoration: none;
+}
+body{
+    background-image: url(../asset/homepage-assets/signin-bg.png);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container{
+    position: relative;
+    width: 900px;
+    height: 700px;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 40px;
+    box-shadow:0 0 30px rgba(0, 0, 0, .2);
+    border: 2px solid rgba(255,255,255,.2);
+}
+
+.form-box .loginbox{
+    position: relative;
+}
+
+.form-box .register{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.form-box{
+    position: absolute;
+    right: 0;
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-left: 40px;
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+    border: 2px solid rgba(255,255,255,.2);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    box-shadow:0 0 5px rgba(0, 0, 0, .1);
+    border-radius: 40px;
+    
+}
+.form-box h2{
+    text-align: center;
+    font-size: 36px;
+    padding-bottom: 20px;
+    margin-bottom: -20px;
+}
+.form-box .error-message{
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    margin: 10px 0 -20px 0;
+}
+
+.inputbox{
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    z-index: 0;
+}
+.inputbox input{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    border: 2px solid white;
+    border-radius: 40px;
+    font-size: 13px;
+    color: #fff;
+    margin: 10px 0 20px 0;
+    padding: 20px;
+    caret-color: #fff;
+}
+
+
+#register-form .inputbox input:last-child {
+    margin-bottom: 48px;
+}
+
+#register-form .register-button {
+    margin-top: 300px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+
+
+.inputbox .register{
+    display: flex;
+    flex-direction: column;
+}
+
+::-ms-reveal{
+    filter:invert(100%);
+}
+
+.inputbox .username:focus{
+    outline: none;
+}
+.inputbox .password:focus{
+    outline: none;
+}
+.inputbox .email:focus{
+    outline: none;
+}
+.inputbox{
+    margin-top: 20px;
+}
+.inputbox input::placeholder{
+    color: white
+}
+
+.form-box .remember-forgot{
+    padding: 70px 30px 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+.form-box .remember-forgot label input{
+    accent-color: #fff;
+    margin-right: 3px;
+}
+.form-box .remember-forgot a{
+    color:#fff;
+    text-decoration: none;
+}
+.form-box .remember-forgot a:hover{
+    text-decoration: underline;
+}
+.btn{
+    width: 100%;
+    height: 45px;
+    background:  red;
+    border:none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn.register-button{
+    margin: 42% 0 5% 0;
+}
+.form-box .other-signin-label{
+    text-align: center;
+}
+.loginbox .other-signin-label{
+    margin: 20px;
+    
+}
+.other-signin-button .facebook-button{
+    width: 60px;
+    height: 60px;
+}
+.other-signin-button {
+    padding: 5px 5px 5px 5px;
+    margin: 0;
+}
+.other-signin-button-block{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+}
+
+.toggle-box{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+
+.toggle-left{
+    opacity: 1;
+    pointer-events: all;
+    width: 50%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+.toggle-right{
+    opacity: 0;
+    pointer-events: none;
+    width: 50%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out;
+}
+
+.toggle-panel p{
+    margin: 15px 0;
+    font-size: 14px; 
+}
+
+.toggle-left .btn{
+    width: 50%;
+    transition: opacity 0.5s ease-in-out;
+}
+.toggle-right .btn{
+    width: 50%;
+    
+    transition: opacity 0.5 ease-in-out;
+}
+
+.fade-out{
+    opacity: 0%;
+}
+
+.fade-in{
+    opacity: 100%;
+}
+.register{
+    right: 0;
+    opacity: 0;
+}
+.loginbox{
+    z-index: 1;
+    right: 0;
+    opacity: 1;
+    visibility: visible;
+}
+.hidden{
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease-in-out;
+}
+.visible{
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity 1s ease-in;
+}
+
+.slide-over-right-to-left-to-fade{
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.slide-over-left-to-right-to-fade{
+    transform: translateX(0%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.slide-over-right-to-left-to-appear{
+    transform: translateX(-100%);
+    opacity: 1;
+    pointer-events: all;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.slide-over-left-to-right-to-appear{
+    transform: translateX(0%);
+    opacity: 1;
+    pointer-events: all;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out; 
+}
+
+.bring-to-front{
+    z-index: 1;
+}
+
+.bring-to-back{
+    z-index: 0;
+}
+
+@media screen and (max-width: 850px){
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+    }
+    .toggle-box{
+        visibility: hidden;
+    }
+    .container{
+        visibility: hidden;
+        margin: 0 20px 0 19px;
+    }
+    
+    .loginbox{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+    .container{
+        align-self: center;
+        visibility: hidden;
+        margin: 0 20px 0 19px;
+    }
+    /* forgot password? */
+    .remember-forgot a{
+        text-align: center;
+        align-self: center;
+        margin-left: 7.5px;
+    }
+    /*remember me*/
+    .remember-forgot label{
+        text-align: center;
+        align-items: center;
+        margin-right: 7.5px;
+    }
+
+    .other-signin-button-block{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+    }
+    .other-signin-label{
+        margin: 10px;
+    }
+    .other-signin-button-block ul{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: -2px;
+    }
+}

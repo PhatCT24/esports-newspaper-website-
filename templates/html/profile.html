@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/profile.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="icon" href="/asset/homepage-assets/page-favicon.png" type="image/x-icon">
+</head>
+<body>
+
+    <div class="navigation">
+      <nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color: #0b0b0b;z-index:1030">
+        <div class="container-fluid">
+          <a class="nav-bar letter-logo"><img src="/asset/homepage-assets/image.png" style="width: 170px"></a>
+          <input class="navbar-searchbar" type="search" placeholder="Search news..." aria-label="Search" id="search-bar">
+          
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/html/lol-homepage.html">League of Legends</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/html/valorant-homepage.html">VALORANT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/html/tft-homepage.html">Teamfight Tactics</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <div class="user-info" id="user-info">
+                <a class="nav-link active" id="user-info-email"></a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="/html/login.html"><button class="btn btn-outline-danger" id="login-btn">Sign In</button></a>
+              <a href="/html/admin.html"><button class="btn btn-outline-danger" id="admin-btn" style="display:none;">Admin</button></a>
+              <button class="btn btn-outline-danger" id="logout-btn" >Logout</button>
+            </li>
+        </div>
+        <label for="nav-mobile-input" class="nav-home">
+          <i class="ri-menu-fill"></i>
+        </label>
+        <input type="checkbox" name="" class="nav-input-mobile" id="nav-mobile-input">
+        <label for="nav-mobile-input" class="nav-overlay"></label>
+        <nav class="nav-mobile">
+          <label for="nav-mobile-input" class="nav-mobile-close">
+            <i class="ri-close-large-line"></i>
+          </label>
+          <ul class="mobile-list">
+            <li class="nav-mobile-item">
+              <a class="nav-link active" href="/html/lol-homepage.html">League of Legends</a>
+            </li>
+            <li class="nav-mobile-item">
+              <a class="nav-link active" href="/html/valorant-homepage.html">VALORANT</a>
+            </li>
+            <li class="nav-mobile-item">
+              <a class="nav-link active" href="/html/tft-homepage.html">Teamfight Tactics</a>
+            </li>
+            <li class="nav-mobile-item dropdown no-margin">
+              <a class="nav-link dropdown-toggle" href="#" id="language-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://flagsapi.com/GB/flat/64.png" alt="English" width="30" height="30"> English
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="language-dropdown">
+                <li><a class="dropdown-item" href="#"><img src="https://flagsapi.com/VN/flat/64.png" alt="VietNamese" width="20" height="20"> Vietnamese</a></li>
+                <li><a class="dropdown-item" href="#"><img src="https://flagsapi.com/FR/flat/64.png" alt="French" width="20" height="20"> French</a></li>
+                <li><a class="dropdown-item" href="#"><img src="https://flagsapi.com/DE/flat/64.png" alt="German" width="20" height="20"> German</a></li>
+              </ul>
+            </li>
+            <li class="nav-mobile-item">
+              <a href="/html/login.html"><button class="btn btn-outline-danger" id="login-btn">Sign In</button></a>
+              <a href="/html/admin.html"><button class="btn btn-outline-danger" id="admin-btn" >(dev)to admin</button></a>
+              <button class="btn btn-outline-danger" id="logout-btn" >Logout</button>
+            </li>
+          </ul>
+        </nav>
+      </nav>
+
+  <main class="main-bg">
+  <div class="container">
+    <section class="profile-card">
+      <div class="profile-header-row">
+        <div class="profile-info">
+          <div class="profile-username" id="username">...</div> <!-- Username -->
+          <table class="profile-table">
+            <tr>
+              <td class="label">Registered:</td>
+              <td id="registered">...</td> <!-- Registered date -->
+            </tr>
+            <tr>
+              <td class="label">Last post:</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td class="label">Posts:</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td class="label">Verified:</td>
+              <td id="verified">...</td> 
+            </tr>
+          </table>
+        </div>
+        <div class="profile-action">
+          <button class="btn-verify" id="btn-verify">Verify</button> 
+          <button class="btn-send">Send Message</button>
+        </div>
+      </div>
+      <div class="profile-tabs">
+        <div class="tab active">Posts</div>
+      </div>
+    </section>
+    <section class="profile-posts"></section>
+  </div>
+</main>
+  
+  <footer>
+    <div class="container1">
+      <div class="upper-bar">
+        <div class = "footer-content-1">
+          <a class="footer-logo"><img src="../asset/homepage-assets/image.png" style="width: 170px"></a>
+        </div>
+        <ul class = "footer-content-list">
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">POLICY</a></li>
+          <li><a href="#">TERMS OF SERVICE</a></li>
+          <li><a href="#">USER SUPPORT</a></li>
+          <li><a href="#">ABOUT US</a></li>
+          <li><a href="supportus.html">SUPPORT US</a></li>
+        </ul>
+        <ul class="footer-social-icon-list">
+          <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
+          <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+        </ul>
+      </div>
+      <hr class = "divider">
+      <div class="bottom-bar">
+        <p>&copy; 2025 E22PTITCLC02. All rights reserved</p>
+      </div>
+    </div>
+  </footer>
+  <script src="/fe-script/homepage.js"></script>
+  <script src="/fe-script/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/tft-homepage.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="/asset/homepage-assets/page-favicon.png" type="image/x-icon">
+    <title>Teamfight Tactics News</title>
+    <script src="/fe-script/homepage.js"></script>
+    <script src="/fe-script/tft-homepage.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color: #0b0b0b;z-index:1030">
+        <div class="container-fluid">
+            <a class="nav-bar letter-logo" id="frontpage"><img src="../asset/homepage-assets/image.png" style="width: 170px"></a>
+            <input class="navbar-searchbar" type="search" placeholder="Search news..." aria-label="Search" id="search-bar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="html/lol-homepage.html">League of Legends</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/html/valorant-homepage.html">VALORANT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/html/tft-homepage.html" style="font-weight: bold;text-decoration: underline">Teamfight Tactics</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <div class="user-info" id="user-info">
+                    <a class="nav-link active" id="user-info-email"></a>
+                </div>
+            </li>
+            <li class="nav-item">
+              <a href="/html/login.html"><button class="btn btn-outline-danger" id="login-btn">Sign In</button></a>
+              <a href="/html/admin.html"><button class="btn btn-outline-danger" id="admin-btn" style="display:none;">Admin</button></a>
+              <button class="btn btn-outline-danger" id="logout-btn" >Logout</button>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <div class="league-page-top">
+        <video autoplay muted loop class="background-video">
+            <source src="../asset/tft-assets/tft-header-background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="content">
+            <h1>Welcome, Tacticians!</h1>
+            <p>Keep up to date with what's happening on the Convergence today!</p>
+        </div>
+    </div>
+    
+
+    
+    <div class="news-form tournament-realm" id="news-form-tournament-realm">
+        <h2>Pengu's Frontline<img src="../asset/tft-assets/tft-logo.png" width="45px" height="45px" ></h2>
+        <p class="subtext">
+            Pengu's here to bring you news from the Convergence! Faster and hotter than your 4-2 rolldown that's for sure!
+        </p>
+    </div>
+
+    <div class="news-form scuttle-news" id="scuttle-news">
+        <h2>Tactician's Tournaments <img src="../asset/tft-assets/tft-logo.png" width="40px" height="40px"></h2>
+        <p class="subtext">Tactician's Trials, Tactician's Cup, Tactician's Crown, all of them in one place, only for our favorite Tactician!.</p>
+    </div>
+
+
+    <div class="news-form game-updates" id="game-updates">
+        <h2>Game Updates 
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512"><path fill="#FFFFFF" d="M380.95 114.46c-62.946-13.147-63.32 32.04-124.868 32.04-53.25 0-55.247-44.675-124.87-32.04C17.207 135.072-.32 385.9 60.16 399.045c33.578 7.295 50.495-31.644 94.89-59.593a51.562 51.562 0 0 0 79.77-25.78 243.665 243.665 0 0 1 21.24-.91c7.466 0 14.44.32 21.126.898a51.573 51.573 0 0 0 79.82 25.717c44.45 27.95 61.367 66.93 94.955 59.626 60.47-13.104 42.496-260.845-71.01-284.543zM147.47 242.703h-26.144V216.12H94.73v-26.143h26.594v-26.593h26.144v26.582h26.582v26.144h-26.582v26.582zm38.223 89.615a34.336 34.336 0 1 1 34.337-34.336 34.336 34.336 0 0 1-34.325 34.346zm140.602 0a34.336 34.336 0 1 1 34.367-34.325 34.336 34.336 0 0 1-34.368 34.335zM349.98 220.36A17.323 17.323 0 1 1 367.3 203.04a17.323 17.323 0 0 1-17.323 17.323zm37.518 37.52a17.323 17.323 0 1 1 17.322-17.324 17.323 17.323 0 0 1-17.365 17.334zm0-75.048a17.323 17.323 0 1 1 17.322-17.323 17.323 17.323 0 0 1-17.365 17.333zm37.518 37.518a17.323 17.323 0 1 1 17.323-17.323 17.323 17.323 0 0 1-17.367 17.334z"/></svg>
+        </h2>
+        <p class="subtext">Stay updated with Patch Notes that change the game more than you ever notice!</p>
+    </div>
+    
+    <footer>
+        <div class="container">
+          <div class="upper-bar">
+            <div class = "footer-content-1">
+              <a class="footer-logo"><img src="../asset/homepage-assets/image.png" style="width: 170px"></a>
+            </div>
+            <ul class = "footer-content-list">
+              <li><a href="#">HOME</a></li>
+              <li><a href="#">POLICY</a></li>
+              <li><a href="#">TERMS OF SERVICE</a></li>
+              <li><a href="#">USER SUPPORT</a></li>
+              <li><a href="#">ABOUT US</a></li>
+              <li><a href="supportus.html">SUPPORT US</a></li>
+            </ul>
+            <ul class="footer-social-icon-list">
+              <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+            </ul>
+          </div>
+          <hr class = "divider">
+          <div class="bottom-bar">
+            <p>&copy; 2025 E22PTITCLC02. All rights reserved</p>
+          </div>
+        </div>
+    </footer>
+</body>
+</html>

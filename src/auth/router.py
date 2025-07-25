@@ -1,0 +1,35 @@
+
+from fastapi import APIRouter, Response, status, Request, Depends
+from src.auth import schemas
+from src.auth import service
+from src.auth.dependencies import get_current_user
+
+router = APIRouter()
+
+@router.post('/register', status_code=status.HTTP_201_CREATED, response_model=schemas.UserResponse)
+async def user_register(payload: schemas.CreateUserSchema):
+    return await service.user_register(payload)
+
+@router.post('/send-verification-code')
+async def send_verification_code(payload: schemas.SendVerificationCodeSchema):
+    return await service.send_verification_code(payload)
+
+@router.post('/verify-code')
+async def verify_code(payload: schemas.VerifyUserSchema):
+    return await service.verify_code(payload)
+
+@router.post('/login')
+async def login(payload: schemas.LoginUserSchema, response: Response):
+    return await service.login(payload, response)
+
+@router.get('/refresh')
+async def refresh_token(response: Response, request: Request):
+    return await service.refresh_token(response, request)
+
+@router.get('/logout')
+async def logout(response: Response):
+    return await service.logout(response)
+
+@router.get('/forgot-password')
+async def forgot_password(payload: schemas.ForgotPasswordSchema, user = Depends(get_current_user)):
+    return await service.forgot_password(payload)

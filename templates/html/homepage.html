@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/asset/homepage-assets/page-favicon.png" type="image/x-icon">
+    <title>Rito.gg</title>
+    <script src="../fe-script/homepage.js"></script>
+</head>
+<body>
+    <div class="navigation">
+      <nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color: #0b0b0b;z-index:1030">
+        <div class="container-fluid">
+          <a class="nav-bar letter-logo"><img src="/asset/homepage-assets/image.png" style="width: 170px"></a>
+          <input class="navbar-searchbar" type="search" placeholder="Search news..." aria-label="Search" id="search-bar">
+          
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/html/lol-homepage.html">League of Legends</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/html/valorant-homepage.html">VALORANT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/html/tft-homepage.html">Teamfight Tactics</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <div class="user-info" id="user-info">
+                <a class="nav-link active" id="user-info-email"></a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="login.html"><button class="btn btn-outline-danger" id="login-btn">Sign In</button></a>
+              <a href="/html/admin.html"><button class="btn btn-outline-danger" id="admin-btn" style="display:none;">Admin</button></a>
+              <button class="btn btn-outline-danger" id="logout-btn" >Logout</button>
+            </li>
+        </div>
+        <label for="nav-mobile-input" class="nav-home">
+          <i class="ri-menu-fill"></i>
+        </label>
+        <input type="checkbox" name="" class="nav-input-mobile" id="nav-mobile-input">
+        <label for="nav-mobile-input" class="nav-overlay"></label>
+        <nav class="nav-mobile">
+          <label for="nav-mobile-input" class="nav-mobile-close">
+            <i class="ri-close-large-line"></i>
+          </label>
+          <ul class="mobile-list">
+            <li class="nav-mobile-item">
+              <a class="nav-link active" href="/html/lol-homepage.html">League of Legends</a>
+            </li>
+            <li class="nav-mobile-item">
+              <a class="nav-link active" href="/html/valorant-homepage.html">VALORANT</a>
+            </li>
+            <li class="nav-mobile-item">
+              <a class="nav-link active" href="/html/tft-homepage.html">Teamfight Tactics</a>
+            </li>
+            <li class="nav-mobile-item dropdown no-margin">
+              <a class="nav-link dropdown-toggle" href="#" id="language-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://flagsapi.com/GB/flat/64.png" alt="English" width="30" height="30"> English
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="language-dropdown">
+                <li><a class="dropdown-item" href="#"><img src="https://flagsapi.com/VN/flat/64.png" alt="VietNamese" width="20" height="20"> Vietnamese</a></li>
+                <li><a class="dropdown-item" href="#"><img src="https://flagsapi.com/FR/flat/64.png" alt="French" width="20" height="20"> French</a></li>
+                <li><a class="dropdown-item" href="#"><img src="https://flagsapi.com/DE/flat/64.png" alt="German" width="20" height="20"> German</a></li>
+              </ul>
+            </li>
+            <li class="nav-mobile-item">
+              <a href="/html/login.html"><button class="btn btn-outline-danger" id="login-btn">Sign In</button></a>
+              <a href="/html/admin.html"><button class="btn btn-outline-danger" id="admin-btn" >(dev)to admin</button></a>
+              <button class="btn btn-outline-danger" id="logout-btn" >Logout</button>
+            </li>
+          </ul>
+        </nav>
+      </nav>
+    </div>
+      <main>
+        <div class="sc-1">
+          <div class="sc-1-text">
+            <h1>Welcome to RITO.GG – Your Ultimate Riot Games' News Hub!</h1>
+            <p>Everything, everywhere about Riot Games and Riot Games Esports, all at once!</p>
+            <p>Stay updated with the latest news, game updates, patch notes, and community highlights.</p>
+            <div class="search-box"><!-- Search bar HEREEEEEEEEEEE-->
+              <input type="text" placeholder="Search..." id="big-search-bar">
+              <i class="ri-search-eye-line"></i>
+            </div>
+          </div>
+        </div>
+        <div class="sc-1-healine">
+          <h1>What's happening today?</h1>
+        </div>
+        <div class="news-sc-1" id="news-section">
+          
+        </div>
+        <div class="carousel-headline">
+          <h1>Or maybe you're more interested in the news of...</h1>
+        </div>        
+   
+        <div class="grid-container">
+
+          <div class="item item1" id="lol-carousel">
+            <img src="/asset/homepage-assets/lol1.webp" alt="LOL">
+            <div class="overlay">
+              <span class="overlay-text">League Of Legends</span>
+            </div>
+          </div>
+          <div class="item item2" id="val-carousel">
+            <img src="/asset/homepage-assets/val1.jpg" alt="Valorant">
+            <div class="overlay">
+              <span class="overlay-text">VALORANT</span>
+            </div>
+          </div>
+          <div class="item item3" id="tft-carousel">
+            <img src="/asset/homepage-assets/tft1.png" alt="TFT">
+            <div class="overlay">
+              <span class="overlay-text">Teamfight Tactics</span>
+
+            </div>
+          </div>
+        </div>
+        <div class="about-authors">
+          <div class="authors-wrds">
+            <b><h1>About Us</h1></b>
+            <p>The four young men in the photo aren’t just friends sharing drinks—they're a passionate and creative web development team. From lively conversations over cold beers, they came up with an idea and joined forces to build a unique website—one that blends technology, user experience, and the spirit of friendship.</p>
+            <p>Each brings a different strength to the table: one is a  expert, another dives deep into backend systems, one perfects every pixel of the UI/UX, and the last bridges the gap between tech and user needs. They don’t just divide tasks—they share late-night debugging sessions, race against deadlines, and celebrate together when their first product goes live.</p>
+          </div>
+          <img src="/asset/homepage-assets\author.jpg" alt="4 thằng ngu ngồi uống bia">
+        </div>
+      </main>
+      <footer>
+        <div class="container">
+          <div class="upper-bar">
+            <div class = "footer-content-1">
+              <a class="footer-logo"><img src="/asset/homepage-assets/image.png" style="width: 170px"></a>
+            </div>
+            <ul class = "footer-content-list">
+              <li><a href="#">HOME</a></li>
+              <li><a href="#">POLICY</a></li>
+              <li><a href="#">TERMS OF SERVICE</a></li>
+              <li><a href="#">USER SUPPORT</a></li>
+              <li><a href="#">ABOUT US</a></li>
+              <li><a href="/html/supportus.html">SUPPORT US</a></li>
+            </ul>
+            <ul class="footer-social-icon-list">
+              <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+            </ul>
+          </div>
+          <hr class = "divider">
+          <div class="bottom-bar">
+            <p>&copy; 2025 E22PTITCLC02. All rights reserved</p>
+          </div>
+        </div>
+      </footer>
+</body>
+</html>   

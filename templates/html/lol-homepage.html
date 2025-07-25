@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/lol-homepage.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="/asset/homepage-assets/page-favicon.png" type="image/x-icon">
+    <title>League News</title>
+    <script src="/fe-script/homepage.js"></script>
+    <script src="/fe-script/lol-homepage.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color: #0b0b0b;z-index:1030">
+        <div class="container-fluid">
+            <a class="nav-bar letter-logo" id="frontpage"><img src="../asset/homepage-assets/image.png" style="width: 170px"></a>
+            <input class="navbar-searchbar" type="search" placeholder="Search news..." aria-label="Search" id="search-bar">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/html/lol-homepage.html" style="font-weight:bold; text-decoration: underline">League of Legends</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/html/valorant-homepage.html">VALORANT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/html/tft-homepage.html">Teamfight Tactics</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <!-- <li class="nav-item dropdown no-margin">
+              <a class="nav-link dropdown-toggle" href="#" id="language-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://flagsapi.com/GB/flat/64.png" alt="English" width="30" height="30"> English
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="language-dropdown">
+                <li><a class="dropdown-item" href="#"><img src="https://flagsapi.com/VN/flat/64.png" alt="VietNamese" width="20" height="20"> Vietnamese</a></li>
+                <li><a class="dropdown-item" href="#"><img src="https://flagsapi.com/FR/flat/64.png" alt="French" width="20" height="20"> French</a></li>
+                <li><a class="dropdown-item" href="#"><img src="https://flagsapi.com/DE/flat/64.png" alt="German" width="20" height="20"> German</a></li>
+              </ul>
+            </li> -->
+            <li class="nav-item">
+                <div class="user-info" id="user-info">
+                    <a class="nav-link active" id="user-info-email"></a>
+                </div>
+            </li>
+            <li class="nav-item">
+              <a href="/html/login.html"><button class="btn btn-outline-danger" id="login-btn">Sign In</button></a>
+              <a href="/html/admin.html"><button class="btn btn-outline-danger" id="admin-btn" style="display:none;">Admin</button></a>
+              <button class="btn btn-outline-danger" id="logout-btn" >Logout</button>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <div class="league-page-top">
+        <video autoplay muted loop class="background-video">
+            <source src="../asset/league-assets/league-header-background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="content">
+            <h1>Welcome, Summoners!</h1>
+            <p>Keep up to date with what's happening on the Rift today!</p>
+        </div>
+    </div>
+    
+
+    
+    <div class="news-form tournament-realm" id="news-form-tournament-realm">
+        <h2>Scuttle News  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="32px" width="32px" version="1.1" id="_x32_" viewBox="0 0 512 512" xml:space="preserve">
+            <style type="text/css">
+                .st0{fill:#FFFFFF;}
+            </style>
+            <g>
+                <path class="st0" d="M485.235,281.91l-44.273-25.356l-65.345,8.26c-1.168-4.886-2.55-9.608-4.173-14.099l46.634-18.049   l27.349-47.596l-2.954-23.279c18.874-15.396,31.677-45.767,16.762-78.388c-18.024-39.422-54.964-47.27-54.964-47.27l2.07,70.755   l-56.364-28.259c-5.169,72.541,40.787,95.467,69.029,93.252l1.031,8.098l-18.917,32.912l-40.512,15.688   c-13.516-20.728-36.811-43.303-38.589-58.287c5.144-4.336,8.407-10.82,8.407-18.075c0-13.051-10.578-23.631-23.63-23.631   s-23.64,10.58-23.64,23.631c0,6.475,2.611,12.34,6.818,16.607c-7.007,10.501-6.414,17.723-33.978,17.723   c-27.555,0-26.97-7.222-33.977-17.723c4.216-4.267,6.826-10.132,6.826-16.607c0-13.051-10.588-23.631-23.648-23.631   c-13.052,0-23.622,10.58-23.622,23.631c0,7.256,3.263,13.739,8.406,18.075c-1.777,14.984-25.073,37.558-38.588,58.287   l-40.521-15.688l-18.9-32.912l1.022-8.098c28.242,2.215,74.198-20.711,69.021-93.252l-56.364,28.259l2.078-70.755   c0,0-36.948,7.849-54.963,47.27c-14.924,32.62-2.113,62.992,16.752,78.388l-2.954,23.279l27.348,47.596l46.635,18.049   c-1.606,4.491-2.998,9.213-4.174,14.099l-65.336-8.26L26.756,281.91L0,327.935l15.353,10.158l28.671-37.773l32.088-18.376   l56.596,7.162c-0.293,4.259-0.404,8.518-0.301,12.786l-40.71,13.567L52.216,362.84l-6.414,60.279l18.195,2.868l11.42-52.628   l30.672-36.811l29.478-9.832c2.216,9.223,5.634,17.929,10.45,25.64l-27.624,19.174l-11.867,51.546l15.903,52.791l17.774-4.808   l-8.569-49.176l9.247-36.064l20.574-14.28c34.467,33.874,81.737,33.643,94.539,33.643c12.812,0,60.073,0.231,94.549-33.643   l20.574,14.28l9.239,36.064l-8.56,49.176l17.774,4.808l15.903-52.791l-11.876-51.546l-27.632-19.174   c4.826-7.711,8.244-16.418,10.458-25.64l29.479,9.832l30.68,36.811l11.412,52.628l18.195-2.868l-6.414-60.279l-39.482-47.381   l-40.71-13.567c0.112-4.267-0.009-8.526-0.292-12.786l56.595-7.162l32.081,18.376l28.67,37.773L512,327.935L485.235,281.91z"/>
+            </g>
+            </svg></h2>
+        <p class="subtext">
+            Bringing you news that are quick and hot like how the Infernal Drake quickly ends games by baiting junglers into thinking it actually does something
+        </p>
+        
+        
+    </div>
+
+    <div class="news-form scuttle-news" id="scuttle-news">
+        <h2>Tournament Realm  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 -0.5 17 17" version="1.1" class="si-glyph si-glyph-champion-cup">
+            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <path d="M11.969,1 L3.082,1 L3.082,2.031 L-0.0078124993,2.0310001 L-0.0078124993,6.8670001 C-0.0078124993,8.7360001 2.078,10.274 4.125,10.434 C4.797,11.154 5.979,11.677 7.031,11.9 L7.031,13.164 C6.025,13.473 4.22800003,14.1989902 4.12500003,14.9899902 L11.0290523,14.9899902 C10.9250523,14.1989902 8.945,13.472 7.937,13.164 L7.937,11.9 C8.993,11.677 10.228,11.154 10.901,10.434 C12.947,10.274 14.941,8.736 14.941,6.867 L14.941,2.031 L11.969,2.031 L11.969,1 Z M0.941000006,2.9473877 L3.01000001,2.9473877 L3.01,7.113 C3.01,7.935 3.222,8.717 3.595,9.421 C2.047,8.928 0.941,7.658 0.941,6.172 L0.941000006,2.9473877 Z M9.0451968,8.028 L7.50083389,7.177 L5.9548032,8.028 L6.25,6.228 L5,4.954 L6.72698466,4.691 L7.50083389,3.055 L8.27301534,4.691 L10,4.954 L8.75083389,6.228 L9.0451968,8.028 L9.0451968,8.028 Z M11.34,9.554 C11.715,8.818 11.93,8.004 11.93,7.143 L11.93,2.97424316 L14.004,2.97424316 L14.004,6.16 C14.004,7.713 12.893,9.039 11.34,9.554 Z" fill="#FFFFFF" class="si-glyph-fill">
+        </path>
+            </g>
+        </svg></h2>
+        <p class="subtext">If you don't know that this game has an eSports scene, I don't know what to tell you man - Marc Merrill </p>
+        
+    </div>
+
+
+    <div class="news-form game-updates" id="game-updates">
+        <h2>Game Updates
+            <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 512 512"><path fill="#FFFFFF" d="M380.95 114.46c-62.946-13.147-63.32 32.04-124.868 32.04-53.25 0-55.247-44.675-124.87-32.04C17.207 135.072-.32 385.9 60.16 399.045c33.578 7.295 50.495-31.644 94.89-59.593a51.562 51.562 0 0 0 79.77-25.78 243.665 243.665 0 0 1 21.24-.91c7.466 0 14.44.32 21.126.898a51.573 51.573 0 0 0 79.82 25.717c44.45 27.95 61.367 66.93 94.955 59.626 60.47-13.104 42.496-260.845-71.01-284.543zM147.47 242.703h-26.144V216.12H94.73v-26.143h26.594v-26.593h26.144v26.582h26.582v26.144h-26.582v26.582zm38.223 89.615a34.336 34.336 0 1 1 34.337-34.336 34.336 34.336 0 0 1-34.325 34.346zm140.602 0a34.336 34.336 0 1 1 34.367-34.325 34.336 34.336 0 0 1-34.368 34.335zM349.98 220.36A17.323 17.323 0 1 1 367.3 203.04a17.323 17.323 0 0 1-17.323 17.323zm37.518 37.52a17.323 17.323 0 1 1 17.322-17.324 17.323 17.323 0 0 1-17.365 17.334zm0-75.048a17.323 17.323 0 1 1 17.322-17.323 17.323 17.323 0 0 1-17.365 17.333zm37.518 37.518a17.323 17.323 0 1 1 17.323-17.323 17.323 17.323 0 0 1-17.367 17.334z"/></svg>
+        </h2>
+        <p class="subtext">Stay updated with Patch Notes that change the game more than you ever notice!</p>
+
+        
+    </div>
+    
+    <footer>
+        <div class="container">
+          <div class="upper-bar">
+            <div class = "footer-content-1">
+              <a class="footer-logo"><img src="../asset/homepage-assets/image.png" style="width: 170px"></a>
+            </div>
+            <ul class = "footer-content-list">
+              <li><a href="#">HOME</a></li>
+              <li><a href="#">POLICY</a></li>
+              <li><a href="#">TERMS OF SERVICE</a></li>
+              <li><a href="#">USER SUPPORT</a></li>
+              <li><a href="#">ABOUT US</a></li>
+              <li><a href="supportus.html">SUPPORT US</a></li>
+            </ul>
+            <ul class="footer-social-icon-list">
+              <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
+              <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+            </ul>
+          </div>
+          <hr class = "divider">
+          <div class="bottom-bar">
+            <p>&copy; 2025 E22PTITCLC02. All rights reserved</p>
+          </div>
+        </div>
+    </footer>
+    <script>
+        const loginBtn = document.getElementById("login-btn");
+        const adminBtn = document.getElementById("admin-btn");
+        const logoutBtn = document.getElementById("logout-btn");
+
+        const token = localStorage.getItem("token");
+        const role = localStorage.getItem("role");
+    document.addEventListener("DOMContentLoaded", () => {
+
+        if (!token) {
+            // Chưa đăng nhập
+            loginBtn.style.display ="";
+            adminBtn.style.display = "none";
+            logoutBtn.style.display = "none";
+        } else if (role === "admin") {
+            // Đăng nhập là admin
+            loginBtn.style.display = "none";
+            adminBtn.style.display = "";
+            logoutBtn.style.display = "";
+        } else if (role === "user") {
+            // Đăng nhập là user
+            loginBtn.style.display = "none";
+            adminBtn.style.display = "none";
+            logoutBtn.style.display = "";
+        }
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', function () {
+      // Optional: send to backend (if it does any cleanup)
+      fetch('/logout', {
+        method: 'POST',
+        credentials: 'include' // or 'same-origin' if using cookies
+      }).catch(error => {
+        console.error('Logout API call failed:', error);
+      });
+    
+      
+      localStorage.removeItem('token');
+      localStorage.removeItem('role');
+      
+      
+      loginBtn.style.display ="";
+      adminBtn.style.display = "none";
+      logoutBtn.style.display = "none";
+    });
+</script>  
+</body>
+</html>

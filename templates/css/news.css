@@ -1,0 +1,365 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    caret-color: transparent;
+    box-sizing: border-box;
+    color: white;
+}
+a{
+    text-decoration: none !important;
+    color: white;
+}
+a:hover{
+    text-decoration: underline ;
+}
+body, html{
+    overflow-x: hidden;
+}
+
+main{
+    background-color: #1D1D1D;
+    padding: 0;
+}
+
+body{
+    background-color: #1D1D1D !important; 
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+img{
+    vertical-align: middle;
+}
+
+
+.btn.btn-outline-danger{
+    background-color: red;
+    border-radius: 40px;
+    color: white;
+    padding-top: 10px auto;
+}
+
+.body-container{
+    max-width: 1200px;
+    margin: 30px auto; 
+    background-color: #40474F;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* grid-template-rows: 1.8fr 1fr; */
+}
+
+.news{
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    color: #000000;
+    display: table-column;
+    justify-content: top;
+    align-items: center;
+}
+
+.news-header h1{
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.navbar-searchbar
+{
+    width: 300px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+    color: black;
+}
+.navbar-searchbar::placeholder{
+    color: #666;
+    padding-left: 5px;
+}
+.navbar-searchbar:focus{
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+}
+.genre{
+    padding-left: 20px;
+    padding-top: 20px;
+    border-bottom: 2px dashed gray;
+}
+
+.genre a{
+    font-style: normal;
+    color: white;
+    text-decoration: none;
+}
+
+.news-stat{
+    padding-left: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 120%;
+}
+
+.author p{
+    margin-top: 15px;
+    margin-left: 5px;
+    object-position: center;
+}
+
+.news-header h1{
+    padding-left: 20px;
+    padding-top: 20px;
+}
+.news-img{
+    padding: 20px;
+    width: 100%;
+}
+
+.news-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+}
+
+.author img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.news-body{
+    font-size: 20px;
+    padding: 20px;
+}
+
+.news-body p{
+    text-align: justify;
+}
+
+.sidebar {
+    width: auto;
+    margin-left: 0px;
+    padding-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    display: block;
+    justify-content: flex-start;
+    align-items: top;
+}
+
+.sidebar h3{
+    border-left: 10px solid #ffffff;
+    padding-left: 10px;
+}
+
+.sbnews {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 15px;
+    padding: 20px 0;
+    border-bottom: 1px dashed gray;
+}
+
+.sbnews img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    border-radius: 5px;
+}
+
+.sbnews p{
+    padding-right: 10px;
+    text-align: justify;
+}
+
+.news-cmt-container {
+    min-height: 100vh;
+    width: auto;
+    padding: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-top: 2px dashed gray;
+    /* background: ; */
+}
+.cmt-head {
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.cmtbox-content{
+    width: 100%;
+}
+.cmtbox {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin-top: 40px;
+}
+.cmtbox img{
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    margin-right: 20px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.user{
+    border: none;
+    outline: none;
+    margin: 5px 0;
+    color: #808080;
+    background-color: #1D1D1D;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: #FAD6A5;
+    border-radius: 5px;
+}
+.cmt-input{
+    color: #FAD6A5;
+}
+.cmt-input textarea{
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    border-bottom: 4px solid #800020;
+    background: #1D1D1D;
+    margin-bottom: 10px;
+    width: 95%;
+    color: #FAD6A5;
+    border-radius: 5px;
+}
+
+.cmt-btns{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #800020;
+}
+
+.cmt-btns button{
+    padding: 5px 10px;
+    background: #1D1D1D;
+    color: #FAD6A5;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.cmt-btns button.abled{
+    background: #D32F2F;
+    color: #FDF3E7;
+}
+
+.AppCmts{
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.AppCmts h1{
+    font-size: 0.9em;
+}
+
+.AppCmts p{
+    margin: 10px 0;
+}
+
+.AppCmts img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: center;
+    object-position: center;
+}
+
+.engagements{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.date{
+    font-size: 0.8em;
+}
+
+/*
+fffffffff
+fffffffffffffff
+fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+fffffffffffffff
+fffffffffffff
+fffffffffff
+*/
+
+footer{
+    background-color: black;
+    color: #fff;
+    padding: 20px 0;
+}
+container {
+    max-width: 1400px;
+}
+.upper-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+.footer-logo img{
+    max-width: 170px;
+    margin-left: 0;
+}
+.footer-content-list {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.footer-content-list li a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: color 0.5s;
+}
+.footer-content-list li a:hover {
+    color: #ccc;
+}
+.footer-social-icon-list{
+    display: flex;
+    gap: 15px;
+}
+.footer-social-icon-list li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 25px;
+    transition: color 0.5s, transform 0.3s;
+}
+.footer-social-icon-list li a:hover{
+    color: #ccc;
+    transform: scale(1.1);
+}
+.divider {
+    border-color: #fff;
+    margin: 15px 0;
+}
+.bottom-bar{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #aaa;
+}

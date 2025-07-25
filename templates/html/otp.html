@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OTP Authentication</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/otp.css">
+  <script src ="../fe-script/otp.js"></script>
+</head>
+<body>
+
+  <div class="otp-container">
+    <h1 class="otp-title">VERIFICATION</h1>
+    <div class="otp-subtitle">Enter the 6 digit OTP sent to your email.</div>
+    <form id="otp-form" autocomplete="off">
+      <div class="otp-inputs">
+        <input type="text" inputmode="numeric" maxlength="1" pattern="[0-9]*" class="otp-input" required />
+        <input type="text" inputmode="numeric" maxlength="1" pattern="[0-9]*" class="otp-input" required />
+        <input type="text" inputmode="numeric" maxlength="1" pattern="[0-9]*" class="otp-input" required />
+        <input type="text" inputmode="numeric" maxlength="1" pattern="[0-9]*" class="otp-input" required />
+        <input type="text" inputmode="numeric" maxlength="1" pattern="[0-9]*" class="otp-input" required />
+        <input type="text" inputmode="numeric" maxlength="1" pattern="[0-9]*" class="otp-input" required />
+      </div>
+      <button type="button" class="verify-btn" id="verify-btn">Verify</button>
+      <hr class="divider"/>
+      <div class="otp-footer">Didn’t receive an OTP.<span>Resend</span></div>
+    </form>
+  </div>
+</body>
+</html>
