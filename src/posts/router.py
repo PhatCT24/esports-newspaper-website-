@@ -5,6 +5,7 @@ from src.posts import service
 from src.auth.dependencies import get_current_user
 
 from typing import List
+from fastapi import Query
 
 router = APIRouter()
 
@@ -20,6 +21,10 @@ async def get_post_by_id(post_id: str):
 @router.get("/", response_model=List[PostResponseSchema])
 async def get_all_posts():
     return await service.get_all_posts()
+
+@router.get("/search", response_model=List[dict])
+async def search_post_title(title: str = Query(..., min_length=1)):
+    return await service.search_post_title(title)
 
 @router.get("/title/{title}", response_model=PostResponseSchema)
 async def get_post_by_title(title: str):

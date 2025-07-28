@@ -26,7 +26,7 @@ async def login(payload: schemas.LoginUserSchema, response: Response):
 async def refresh_token(response: Response, request: Request):
     return await service.refresh_token(response, request)
 
-@router.get('/logout')
+@router.post('/logout')
 async def logout(response: Response):
     return await service.logout(response)
 

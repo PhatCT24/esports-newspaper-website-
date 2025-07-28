@@ -4,7 +4,10 @@ document.addEventListener("DOMContentLoaded",async () => {
     });
     function displayUserInfo() {
         const username = getCookie('username');
-        const token = getCookie('Authorization');
+        let token = getCookie('access_token');
+        if (token && token.startsWith('Bearer ')) {
+            token = token.slice(7);
+        }
         const userInfo = JSON.parse(atob(token.split('.')[1]));
         const verified = userInfo.verified;
         const registered = getCookie('createdAt');  

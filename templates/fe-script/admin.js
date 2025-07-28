@@ -1,8 +1,11 @@
 const navToggle = document.getElementById("nav-toggle");
 const logoImg = document.getElementById("logo-img");
-const token = getCookie("Authorization");
-const userInfo = JSON.parse(atob(token.split('.')[1]));
-if (token){
+let token = getCookie("access_token");
+if (token && token.startsWith("Bearer ")) {
+    token = token.slice(7);
+}
+const userInfo = token ? JSON.parse(atob(token.split('.')[1])) : null;
+if (userInfo){
     document.getElementById("user-info-username").innerHTML = userInfo.username;
     document.getElementById("user-info-email").innerHTML = userInfo.email;
 }

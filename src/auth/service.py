@@ -91,12 +91,13 @@ async def login(payload: schemas.LoginUserSchema, response: Response):
     if not utils.verify_password(payload.password, user['password']):
         raise HTTPException(status_code=400, detail="Incorrect email or password")
 
-    access_token = create_access_token({"sub": str(user["id"]), "role": user["role"]})
-    refresh_token = create_refresh_token({"sub": str(user["id"]), "role": user["role"]})
+    access_token = create_access_token({"sub": str(user["id"]), "role": user["role"], "name": user["name"]})
+    refresh_token = create_refresh_token({"sub": str(user["id"]), "role": user["role"], "name": user["name"]})
 
-    response.set_cookie('access_token', access_token, httponly=True)
+    response.set_cookie('access_token', access_token, httponly=False)
     response.set_cookie('refresh_token', refresh_token, httponly=True)
     response.set_cookie('logged_in', 'True', httponly=False)
+
 
     return{'status': 'success', 'access_token': access_token}
 
@@ -119,7 +120,7 @@ async def refresh_token(response: Response, request: Request):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='User not found')
 
     access_token = utils.create_access_token({"sub": str(user["id"]), "role": user["role"]})
-    response.set_cookie('access_token', access_token, httponly=True)
+    response.set_cookie('access_token', access_token, httponly=False)
     response.set_cookie('logged_in', 'True', httponly=False)
 
     return {'access_token': access_token}

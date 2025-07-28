@@ -1,4 +1,51 @@
 document.addEventListener("DOMContentLoaded", async () => {
+    // --- Unified Login/Logout/User Info Logic ---
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    }
+    let token = getCookie("access_token");
+    if (token && token.startsWith("Bearer ")) token = token.slice(7);
+    const loginBtn = document.getElementById("login-btn");
+    const logoutBtn = document.getElementById("logout-btn");
+    const userBtn = document.getElementById("user-info-name");
+    if(token){
+        if (loginBtn) loginBtn.style.display = "none";
+        if (logoutBtn) logoutBtn.style.display = "block";
+        if (userBtn) {
+            userBtn.style.display = "block";
+            try{
+                const userInfoObj = JSON.parse(atob(token.split('.')[1]));
+                if (userInfoObj && userInfoObj.name){
+                    userBtn.innerHTML = userInfoObj.name;
+                }
+            } catch {}
+        }
+    } else {
+        if(loginBtn) loginBtn.style.display = "block";
+        if(logoutBtn) logoutBtn.style.display = "none";
+        if(userBtn) userBtn.style.display = "none";
+    }
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", async () => {
+            try{
+                const response = await fetch("/auth/logout", { method: "POST", headers: { "Content-Type": "application/json" } });
+                if (response.ok){
+                    if (loginBtn) loginBtn.style.display = "block";
+                    if(logoutBtn) logoutBtn.style.display = "none";
+                    if(userBtn) userBtn.style.display = "none";
+                } else {
+                    console.log("logout failed");
+                }
+            } catch (error){
+                console.log(error);
+            }
+        });
+    }
+    // --- End Unified Login/Logout/User Info Logic ---
+
     //newest news
     document.getElementById("search-bar").addEventListener("keydown", (event) => {
         if (event.key === "Enter") {

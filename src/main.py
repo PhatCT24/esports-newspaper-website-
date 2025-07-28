@@ -22,6 +22,7 @@ app = FastAPI()
 app.mount("/fe-script", NoCacheStaticFiles(directory="templates/fe-script"), name="fe-script")
 app.mount("/css", NoCacheStaticFiles(directory="templates/css"), name="css")
 app.mount("/asset", NoCacheStaticFiles(directory="templates/asset"), name="asset")
+app.mount("/uploads", NoCacheStaticFiles(directory="uploads"), name="uploads") 
 
 origins = {
     settings.CLIENT_ORIGIN,

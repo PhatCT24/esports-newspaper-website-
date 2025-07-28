@@ -17,10 +17,3 @@ def get_current_user(request: Request):
         raise HTTPException(401, detail="User not found")
     return userEntity(user)
 
-def require_role(role: str):
-    def dependency(user = Depends(get_current_user)):
-        if user["role"] != role:
-            raise HTTPException(403, detail="Unauthorized")
-        return user 
-    return dependency
-    
