@@ -5,6 +5,10 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from starlette.responses import Response
 
+from src.config import settings
+from src.auth.router import router as auth_router
+from src.posts.router import router as posts_router
+
 class NoCacheStaticFiles(StaticFiles):
     async def get_response(self, path, scope):
         response: Response = await super().get_response(path, scope)
@@ -12,11 +16,6 @@ class NoCacheStaticFiles(StaticFiles):
         response.headers["Pragma"] = "no-cache"
         response.headers["Expires"] = "0"
         return response
-
-
-from src.config import settings
-from src.auth.router import router as auth_router
-from src.posts.router import router as posts_router
 
 app = FastAPI()
 
