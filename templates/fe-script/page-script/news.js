@@ -1,6 +1,6 @@
-import { setupNavbar } from "../global-script/navbar.js";
+import { setupNavbar } from '../global-script/navbar.js';
 document.addEventListener("DOMContentLoaded", async () => {
-    setupNavbar();
+    setupNavbar({ searchBarId: 'search-bar' });
     // Try to get post data from sessionStorage
     let post = null;
     const stored = sessionStorage.getItem('news_post_data');

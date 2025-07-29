@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
                 const data = await response.json();
                 if (response.ok) {
-                    // Now send verification code
                     const codeRes = await fetch("/auth/send-verification-code", {
                         method: "POST",
                         headers: {
@@ -65,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Login form submission
     const loginForm = document.getElementById("login-form");
     if (loginForm) {
         loginForm.addEventListener("submit", async function(event) {

@@ -56,7 +56,7 @@ navItems.forEach(item => {
 
             const script = document.createElement('script');
             script.id = 'tab-script';
-            script.src = '../fe-script/newsm.js';
+            script.src = '../fe-script/page-script/newsm.js';
             script.defer = true; // Ensure the script runs after parsing
             document.body.appendChild(script);
 
