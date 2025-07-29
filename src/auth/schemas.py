@@ -7,7 +7,7 @@ class UserBaseSchema(BaseModel):
     name: str = Field(..., min_length=2, max_length=100)
     email: EmailStr
     photo: str | None = None
-    role: Optional[Literal["admin", "user", "guest"]] = "user"
+    role: Optional[Literal["admin", "user"]] = "user"
     created_at: datetime | None = None
     updated_at: datetime | None = None
 

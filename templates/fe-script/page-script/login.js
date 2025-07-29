@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Add form switch logic (from script.js)
+
     const registerBtn = document.getElementById("registerBtn");
     const loginBtn = document.getElementById("loginBtn");
     if (registerBtn) registerBtn.addEventListener("click", changeToRegister);
     if (loginBtn) loginBtn.addEventListener("click", changeToLogIn);
-    // Register form submission
+
     const registerForm = document.getElementById("register-form");
     if (registerForm) {
         registerForm.addEventListener("submit", async function(event) {
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if (response.ok) {
                     errorMsg.style.color = "limegreen";
                     errorMsg.textContent = "Login successful! Redirecting...";
-                    window.location.href = "/";
+                    window.location.replace("/");
                 } else {
                     errorMsg.style.color = "red";
                     errorMsg.textContent = data.detail || "Login failed.";

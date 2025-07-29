@@ -49,12 +49,12 @@ async def get_post_by_title(title: str):
     return postEntity(post)
 
     
-async def search_post_title(title : str):
-    regex = {"$regex": title, "$options":"i"}
+def search_post_title(title: str):
+    regex = {"$regex": title, "$options": "i"}
     cursor = Post.find({"title": regex}).limit(5)
-    results = []
-    async for post in cursor:
-        results.append({
-            "title": post["title"]
-        })
-    return results
+    return [{"title": post["title"]} for post in cursor]
+
+
+def get_post_by_category(category: str):
+    cursor = Post.find({"category": category})
+    return postListEntity(cursor)

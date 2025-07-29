@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     //tournament news
     try{
-        const response = await fetch("http://localhost:8000/api/posts/posts-by-subcategory?subcategory=Tournament%20News&category=League%20of%20Legends", {
+        const response = await fetch("/posts/posts-by-subcategory?subcategory=Tournament%20News&category=League%20of%20Legends", {
             method: "GET",
             headers: {
                 "Content-Type" : "application/json"

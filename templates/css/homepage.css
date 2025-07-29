@@ -50,7 +50,7 @@ img{
 
 .navbar-searchbar
 {
-    width: 300px;
+    width: 400px;
     padding: 5px;
     border-radius: 5px;
     margin-left: 10px;
@@ -62,6 +62,73 @@ img{
 .navbar-searchbar:focus{
     outline: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+}
+
+
+/* Default search suggestions style (for navbar) */
+.search-suggestions {
+    position: absolute;
+    top: 75%;
+    left: 194px; 
+    width: 397px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+}
+
+.search-suggestions[data-for='big-search-bar'] {
+    top: 100%;
+    left: 48.7%;
+    transform: translateX(-50%);
+    width: 70%;
+    max-width: 738px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    max-height: 400px;
+    margin-top: 2px;
+}
+
+
+.search-suggestions[data-for='big-search-bar'] .suggestion-item {
+    padding: 15px 25px;
+    color: #666;
+    border-bottom: 1px solid #ddd;
+    transition: all 0.2s ease;
+    font-size: 1.1em;
+}
+
+.search-suggestions[data-for='big-search-bar'] .suggestion-item:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+
+.search-suggestions[data-for='big-search-bar'] .suggestion-item.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.suggestion-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+.suggestion-item:hover {
+    background-color: #f5f5f5;
+}
+
+
+.navbar > .container-fluid {
+    position: relative;
 }
 .ri-menu-fill{
     width: 34px;

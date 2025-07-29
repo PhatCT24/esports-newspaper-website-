@@ -23,6 +23,7 @@ app.mount("/fe-script", NoCacheStaticFiles(directory="templates/fe-script"), nam
 app.mount("/css", NoCacheStaticFiles(directory="templates/css"), name="css")
 app.mount("/asset", NoCacheStaticFiles(directory="templates/asset"), name="asset")
 app.mount("/uploads", NoCacheStaticFiles(directory="uploads"), name="uploads") 
+app.mount("/html", NoCacheStaticFiles(directory="templates/html"), name="html")
 
 origins = {
     settings.CLIENT_ORIGIN,
