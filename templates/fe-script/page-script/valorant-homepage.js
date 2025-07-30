@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     
     try{
-        const response = await fetch("http://localhost:8000/api/posts/posts-by-category?category=VALORANT", {
+        const response = await fetch("/posts/by-category?category=VALORANT", {
             method: "GET",
             headers: {
                 "Content-Type" : "application/json"
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             news_box_featured_news.className = "news-box-featured-news"
             
             let count = 4;
-            data.data.forEach(post => {
+            data.forEach(post => {
                 if (count === 4){
                     const createdAt = post.createdAt ? new Date(post.createdAt) : new Date();
                     const now = new Date();
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     //tournament news
     try{
-        const response = await fetch("http://localhost:8000/api/posts/posts-by-subcategory?subcategory=Tournament%20News&category=VALORANT", {
+        const response = await fetch("/posts/by-subcategory?subcategory=Tournament%20News&category=VALORANT", {
             method: "GET",
             headers: {
                 "Content-Type" : "application/json"
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const news_box_equal_row = document.createElement("div");
             news_box_equal_row.className = "news-box-equal-row";
             let count = 4;
-            data.data.forEach(post => {
+            data.forEach(post => {
                 if (count > 0){
                     const createdAt = post.createdAt ? new Date(post.createdAt) : new Date();
                     const now = new Date();
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     //tournament news
     try{
-        const response = await fetch("http://localhost:8000/api/posts/posts-by-subcategory?subcategory=Game%20Updates&category=VALORANT", {
+        const response = await fetch("/posts/by-subcategory?subcategory=Game%20Updates&category=VALORANT", {
             method: "GET",
             headers: {
                 "Content-Type" : "application/json"
@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const news_box_equal_row = document.createElement("div");
             news_box_equal_row.className = "news-box-equal-row";
             let count = 4;
-            data.data.forEach(post => {
+            data.forEach(post => {
                 if (count > 0){
                     const createdAt = post.createdAt ? new Date(post.createdAt) : new Date();
                     const now = new Date();

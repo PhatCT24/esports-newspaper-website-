@@ -3,21 +3,21 @@ import { setupNavbar } from '../global-script/navbar.js';
 document.addEventListener("DOMContentLoaded", async () => {
     setupNavbar({searchBarId: 'search-bar', bigSearchBarId: 'big-search-bar'});
     const lolCarousel = document.getElementById("lol-carousel");
-    const valCarousel = document.getElementById("valorant-carousel");
+    const valCarousel = document.getElementById("val-carousel");
     const tftCarousel = document.getElementById("tft-carousel");
 
     if(lolCarousel) lolCarousel.addEventListener("click", () => {
-        window.location.href = "lol-homepage";
+        window.location.href = "../html/lol-homepage.html";
     });
     if(valCarousel) valCarousel.addEventListener("click", () => {
-        window.location.href = "valorant-homepage";
+        window.location.href = "../html/valorant-homepage.html";
     });
     if(tftCarousel) tftCarousel.addEventListener("click", () => {
-        window.location.href = "tft-homepage";
+        window.location.href = "../html/tft-homepage.html";
     });
 
     try {
-        const response = await fetch("/posts", {
+        const response = await fetch("/posts/", {
             method: "GET",
             headers: { "Content-Type": "application/json" }
         });

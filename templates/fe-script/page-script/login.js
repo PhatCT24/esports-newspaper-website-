@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-
     const registerBtn = document.getElementById("registerBtn");
     const loginBtn = document.getElementById("loginBtn");
     if (registerBtn) registerBtn.addEventListener("click", changeToRegister);

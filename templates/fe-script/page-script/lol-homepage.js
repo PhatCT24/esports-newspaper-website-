@@ -2,15 +2,9 @@ import { setupNavbar } from '../global-script/navbar.js';
 document.addEventListener("DOMContentLoaded", async () => {
     setupNavbar({ searchBarId: 'search-bar' });
 
-    //newest news
-    document.getElementById("search-bar").addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-            window.location.href = "/html/search-result.html?query=" + encodeURIComponent(event.target.value);
-        }
-    });
 
     try{
-        const response = await fetch("http://localhost:8000/api/posts/posts-by-category?category=League%20of%20Legends", {
+        const response = await fetch("/posts/by-category?category=League%20of%20Legends", {
             method: "GET",
             headers: {
                 "Content-Type" : "application/json"
@@ -27,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             news_box_featured_news.className = "news-box-featured-news"
             
             let count = 4;
-            data.data.forEach(post => {
+            data.forEach(post => {
                 if (count === 4){
                     const createdAt = post.createdAt ? new Date(post.createdAt) : new Date();
                     const now = new Date();
@@ -87,7 +81,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     news_box.className = "news-box";
 
                     const image_section = document.createElement("div");
-                    image_section.className = "image-section";
+                    image_section.className = "image-section ";
 
                     const image = document.createElement("img");
                     image.src = post.image;
@@ -127,7 +121,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     //tournament news
     try{
-        const response = await fetch("/posts/posts-by-subcategory?subcategory=Tournament%20News&category=League%20of%20Legends", {
+        const response = await fetch("/posts/by-subcategory?subcategory=Tournament%20News&category=League%20of%20Legends", {
             method: "GET",
             headers: {
                 "Content-Type" : "application/json"
@@ -140,7 +134,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const news_box_equal_row = document.createElement("div");
             news_box_equal_row.className = "news-box-equal-row";
             let count = 4;
-            data.data.forEach(post => {
+            data.forEach(post => {
                 if (count > 0){
                     const createdAt = post.createdAt ? new Date(post.createdAt) : new Date();
                     const now = new Date();
@@ -187,7 +181,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     //tournament news
     try{
-        const response = await fetch("http://localhost:8000/api/posts/posts-by-subcategory?subcategory=Game%20Updates&category=League%20of%20Legends", {
+        const response = await fetch("/posts/by-subcategory?subcategory=Game%20Updates&category=League%20of%20Legends", {
             method: "GET",
             headers: {
                 "Content-Type" : "application/json"
@@ -200,7 +194,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const news_box_equal_row = document.createElement("div");
             news_box_equal_row.className = "news-box-equal-row";
             let count = 4;
-            data.data.forEach(post => {
+            data.forEach(post => {
                 if (count > 0){
                     const createdAt = post.createdAt ? new Date(post.createdAt) : new Date();
                     const now = new Date();

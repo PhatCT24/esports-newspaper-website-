@@ -133,52 +133,6 @@
             <p>&copy; 2025 E22PTITCLC02. All rights reserved</p>
           </div>
         </div>
-    </footer>
-    <script>
-        const loginBtn = document.getElementById("login-btn");
-        const adminBtn = document.getElementById("admin-btn");
-        const logoutBtn = document.getElementById("logout-btn");
-
-        const token = localStorage.getItem("token");
-        const role = localStorage.getItem("role");
-    document.addEventListener("DOMContentLoaded", () => {
-
-        if (!token) {
-            // Chưa đăng nhập
-            loginBtn.style.display ="";
-            adminBtn.style.display = "none";
-            logoutBtn.style.display = "none";
-        } else if (role === "admin") {
-            // Đăng nhập là admin
-            loginBtn.style.display = "none";
-            adminBtn.style.display = "";
-            logoutBtn.style.display = "";
-        } else if (role === "user") {
-            // Đăng nhập là user
-            loginBtn.style.display = "none";
-            adminBtn.style.display = "none";
-            logoutBtn.style.display = "";
-        }
-    });
-
-    document.getElementById('logout-btn').addEventListener('click', function () {
-      // Optional: send to backend (if it does any cleanup)
-      fetch('/logout', {
-        method: 'POST',
-        credentials: 'include' // or 'same-origin' if using cookies
-      }).catch(error => {
-        console.error('Logout API call failed:', error);
-      });
-    
-      
-      localStorage.removeItem('token');
-      localStorage.removeItem('role');
-      
-      
-      loginBtn.style.display ="";
-      adminBtn.style.display = "none";
-      logoutBtn.style.display = "none";
-    });
-</script>  
+    </footer> 
 </body>
 </html>

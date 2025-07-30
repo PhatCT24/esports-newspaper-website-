@@ -55,6 +55,10 @@ def search_post_title(title: str):
     return [{"title": post["title"]} for post in cursor]
 
 
-def get_post_by_category(category: str):
-    cursor = Post.find({"category": category})
+async def get_posts_by_category(category: str):
+    cursor = Post.find({"category": category}).sort("created_at", -1)
+    return postListEntity(cursor)
+
+async def get_posts_by_subcategory(category: str, subcategory: str):
+    cursor = Post.find({"category": category, "subcategory": subcategory}).sort("created_at", -1)
     return postListEntity(cursor)

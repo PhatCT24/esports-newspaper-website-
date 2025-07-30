@@ -2,16 +2,8 @@ import { setupNavbar } from '../global-script/navbar.js';
 document.addEventListener("DOMContentLoaded", async () => {
     setupNavbar({ searchBarId: 'search-bar' });
 
-    //newest news
-    document.getElementById("search-bar").addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-            window.location.href = "/html/search-result.html?query=" + encodeURIComponent(event.target.value);
-        }
-    });
-    
-
     try{
-        const response = await fetch("http://localhost:8000/api/posts/posts-by-category?category=Teamfight%20Tactics", {
+        const response = await fetch("/posts/by-category?category=Teamfight%20Tactics", {
             method: "GET",
             headers: {
                 "Content-Type" : "application/json"
@@ -28,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             news_box_featured_news.className = "news-box-featured-news"
             
             let count = 4;
-            data.data.forEach(post => {
+            data.forEach(post => {
                 if (count === 4){
                     const createdAt = post.createdAt ? new Date(post.createdAt) : new Date();
                     const now = new Date();
@@ -128,7 +120,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     //tournament news
     try{
-        const response = await fetch("http://localhost:8000/api/posts/posts-by-subcategory?subcategory=Tournament%20News&category=Teamfight%20Tactics", {
+        const response = await fetch("/posts/by-subcategory?subcategory=Tournament%20News&category=Teamfight%20Tactics", {
             method: "GET",
             headers: {
                 "Content-Type" : "application/json"
@@ -141,7 +133,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const news_box_equal_row = document.createElement("div");
             news_box_equal_row.className = "news-box-equal-row";
             let count = 4;
-            data.data.forEach(post => {
+            data.forEach(post => {
                 if (count > 0){
                     const createdAt = post.createdAt ? new Date(post.createdAt) : new Date();
                     const now = new Date();
@@ -188,7 +180,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     //tournament news
     try{
-        const response = await fetch("http://localhost:8000/api/posts/posts-by-subcategory?subcategory=Game%20Updates&category=Teamfight%20Tactics", {
+        const response = await fetch("/posts/by-subcategory?subcategory=Game%20Updates&category=Teamfight%20Tactics", {
             method: "GET",
             headers: {
                 "Content-Type" : "application/json"
@@ -201,7 +193,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const news_box_equal_row = document.createElement("div");
             news_box_equal_row.className = "news-box-equal-row";
             let count = 4;
-            data.data.forEach(post => {
+            data.forEach(post => {
                 if (count > 0){
                     const createdAt = post.createdAt ? new Date(post.createdAt) : new Date();
                     const now = new Date();

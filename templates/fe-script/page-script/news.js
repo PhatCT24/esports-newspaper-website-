@@ -1,20 +1,8 @@
 import { setupNavbar } from '../global-script/navbar.js';
 document.addEventListener("DOMContentLoaded", async () => {
     setupNavbar({ searchBarId: 'search-bar' });
-    // Try to get post data from sessionStorage
+  
     let post = null;
-    const stored = sessionStorage.getItem('news_post_data');
-    if (stored) {
-        try {
-            post = JSON.parse(stored);
-            sessionStorage.removeItem('news_post_data');
-        } catch {}
-    }
-    if (post) {
-        renderPost(post);
-        return;
-    }
-    // Fallback: fetch by title or ID from URL
     const urlParams = new URLSearchParams(window.location.search);
     const postId = urlParams.get('_id');
     const postTitle = urlParams.get('title');
@@ -79,30 +67,28 @@ function renderPost(post) {
     const recommended = document.createElement("h3");
     recommended.innerHTML = "Recommended";
     sidebar.appendChild(recommended);
-    // Recommended posts fetch
-    fetch('/posts' + encodeURIComponent(post.category), {
-        method: "GET",
-        headers: { "Content-Type": "application/json" }
-    }).then(resp => resp.json()).then(sidebardata => {
-        let count = 4;
-        (sidebardata.data || []).forEach(post2 => {
-            if ((post2._id !== post._id) && count > 0) {
-                const sbnews = document.createElement("div");
-                sbnews.className = "sbnews";
-                const sbnewsImage = document.createElement("img");
-                sbnewsImage.src = post2.image;
-                sbnews.appendChild(sbnewsImage);
-                const sbnewsLink = document.createElement("a");
-                sbnewsLink.href = `../html/news.html?_id=${post2._id}`;
-                const sbnewsTitle = document.createElement("p");
-                sbnewsTitle.textContent = post2.title;
-                sbnewsLink.appendChild(sbnewsTitle);
-                sbnews.appendChild(sbnewsLink);
-                count--;
-                sidebar.appendChild(sbnews);
-            }
+    fetch(`/posts/by-category?category=${encodeURIComponent(post.category)}`)
+        .then(resp => resp.json())
+        .then(recommendedPosts => {
+            let count = 4;
+            (recommendedPosts || []).forEach(post2 => {
+                if ((post2.post_id !== post.post_id) && count > 0) {
+                    const sbnews = document.createElement("div");
+                    sbnews.className = "sbnews";
+                    const sbnewsImage = document.createElement("img");
+                    sbnewsImage.src = post2.image;
+                    sbnews.appendChild(sbnewsImage);
+                    const sbnewsLink = document.createElement("a");
+                    sbnewsLink.href = `../html/news.html?title=${encodeURIComponent(post2.title)}`;
+                    const sbnewsTitle = document.createElement("p");
+                    sbnewsTitle.textContent = post2.title;
+                    sbnewsLink.appendChild(sbnewsTitle);
+                    sbnews.appendChild(sbnewsLink);
+                    count--;
+                    sidebar.appendChild(sbnews);
+                }
+            });
         });
-    });
     news.appendChild(newsHeader);
     news.appendChild(headerImage);
     news.appendChild(newsBody);
