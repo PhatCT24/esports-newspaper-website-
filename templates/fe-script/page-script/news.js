@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   
     let post = null;
     const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get('_id');
+    const postId = urlParams.get('post_id');
     const postTitle = urlParams.get('title');
     if (postId) {
         const response = await fetch(`/posts/${encodeURIComponent(postId)}`);
@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
     }
-    // If nothing found
     document.getElementById('body-container').innerHTML = '<div class="alert alert-danger">Post not found.</div>';
 });
 
@@ -70,7 +69,7 @@ function renderPost(post) {
     fetch(`/posts/by-category?category=${encodeURIComponent(post.category)}`)
         .then(resp => resp.json())
         .then(recommendedPosts => {
-            let count = 4;
+            let count = 5;
             (recommendedPosts || []).forEach(post2 => {
                 if ((post2.post_id !== post.post_id) && count > 0) {
                     const sbnews = document.createElement("div");

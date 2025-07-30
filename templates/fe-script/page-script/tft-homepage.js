@@ -39,7 +39,22 @@ document.addEventListener("DOMContentLoaded", async () => {
                     featured_content.appendChild(news_uptime);
 
                     const news_link = document.createElement("a");
-                    news_link.href = `../html/news.html?_id=${post._id}`;
+                    news_link.href = `../html/news.html?post_id=${post.post_id}`;
+                    news_link.title = post.title;
+                    news_link.addEventListener("click", async (event) => {
+                        event.preventDefault();
+                        try{
+                            const res = await fetch(`/posts/${post.post_id}`, {
+                                method: "GET",
+                                headers: { "Content-Type": "application/json" }
+                            });
+                            const data = await res.json();
+                            console.log(data);
+                            window.location.href =`../html/news.html?post_id=${post.post_id}&title=${post.title}`;
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    });
                     
                     const news_title = document.createElement("h5");
                     news_title.textContent = post.title;
@@ -95,8 +110,22 @@ document.addEventListener("DOMContentLoaded", async () => {
                     text_section.appendChild(news_uptime)
 
                     const news_link = document.createElement("a");
-                    news_link.href = `../html/news.html?_id=${post._id}`;
-
+                    news_link.href = `../html/news.html?post_id=${post.post_id}`;
+                    news_link.title = post.title;
+                    news_link.addEventListener("click", async (event) => {
+                        event.preventDefault();
+                        try{
+                            const res = await fetch(`/posts/${post.post_id}`, {
+                                method: "GET",
+                                headers: { "Content-Type": "application/json" }
+                            });
+                            const data = await res.json();
+                            console.log(data);
+                            window.location.href =`../html/news.html?post_id=${post.post_id}&title=${post.title}`;
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    });
                     const news_title = document.createElement("h5");
                     news_title.textContent = post.title;
                     news_link.appendChild(news_title);
@@ -155,7 +184,22 @@ document.addEventListener("DOMContentLoaded", async () => {
                     news_section_box_1.appendChild(postStat);
 
                     const news_link = document.createElement("a");
-                    news_link.href = `../html/news.html?_id=${post._id}`;
+                    news_link.href = `../html/news.html?post_id=${post.post_id}`;
+                    news_link.title = post.title;
+                    news_link.addEventListener("click", async (event) => {
+                        event.preventDefault();
+                        try{
+                            const res = await fetch(`/posts/${post.post_id}`, {
+                                method: "GET",
+                                headers: { "Content-Type": "application/json" }
+                            });
+                            const data = await res.json();
+                            console.log(data);
+                            window.location.href =`../html/news.html?post_id=${post.post_id}&title=${post.title}`;
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    });
                     
                     const news_title = document.createElement("h5");
                     news_title.textContent = post.title;
@@ -215,7 +259,22 @@ document.addEventListener("DOMContentLoaded", async () => {
                     news_section_box_1.appendChild(postStat);
 
                     const news_link = document.createElement("a");
-                    news_link.href = `../html/news.html?_id=${post._id}`;
+                    news_link.href = `../html/news.html?post_id=${post.post_id}`;
+                    news_link.title = post.title;
+                    news_link.addEventListener("click", async (event) => {
+                        event.preventDefault();
+                        try{
+                            const res = await fetch(`/posts/${post.post_id}`, {
+                                method: "GET",
+                                headers: { "Content-Type": "application/json" }
+                            });
+                            const data = await res.json();
+                            console.log(data);
+                            window.location.href =`../html/news.html?post_id=${post.post_id}&title=${post.title}`;
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    });
                     
                     const news_title = document.createElement("h5");
                     news_title.textContent = post.title;

@@ -33,3 +33,7 @@ async def logout(response: Response):
 @router.get('/forgot-password')
 async def forgot_password(payload: schemas.ForgotPasswordSchema):
     return await service.forgot_password(payload)
+
+@router.get('/user/me', response_model=schemas.GetUserByIdSchema)
+async def get_current_user_info(current_user: dict = Depends(get_current_user)):
+    return await service.get_user_by_id(current_user["id"])

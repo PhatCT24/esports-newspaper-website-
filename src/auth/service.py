@@ -1,7 +1,8 @@
 from datetime import datetime, timezone
 from bson.objectid import ObjectId
-from fastapi import Response, status, HTTPException, Request
+from fastapi import Response, status, HTTPException, Request, Depends
 from datetime import datetime, timezone, timedelta
+from src.auth.dependencies import get_current_user
 
 from src.database import User
 from src.auth.models import userEntity, userResponseEntity
@@ -149,3 +150,10 @@ async def forgot_password(payload: schemas.ForgotPasswordSchema):
     User.update_one({'email': payload.email.lower()}, {'$set': {'password': payload.password, 'updated_at': datetime.now(timezone.utc)}})
     return {'status': 'success', 'message': 'Password reset successfully'}
 
+
+#get-user-by-id
+async def get_user_by_id(user_id: str):
+    user = User.find_one({'_id': ObjectId(user_id)})
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    return userResponseEntity(user)

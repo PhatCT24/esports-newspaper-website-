@@ -10,6 +10,8 @@
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="icon" href="/asset/homepage-assets/page-favicon.png" type="image/x-icon">
+  <script type="module" src="/fe-script/global-script/navbar.js"></script>
+  <script type="module" src="/fe-script/page-script/profile.js"></script>
 </head>
 <body>
 
@@ -85,11 +87,11 @@
     <section class="profile-card">
       <div class="profile-header-row">
         <div class="profile-info">
-          <div class="profile-username" id="username">...</div> <!-- Username -->
+          <div class="profile-username" id="username">...</div> 
           <table class="profile-table">
             <tr>
               <td class="label">Registered:</td>
-              <td id="registered">...</td> <!-- Registered date -->
+              <td id="registered">...</td>
             </tr>
             <tr>
               <td class="label">Last post:</td>
@@ -99,14 +101,9 @@
               <td class="label">Posts:</td>
               <td>0</td>
             </tr>
-            <tr>
-              <td class="label">Verified:</td>
-              <td id="verified">...</td> 
-            </tr>
           </table>
         </div>
         <div class="profile-action">
-          <button class="btn-verify" id="btn-verify">Verify</button> 
           <button class="btn-send">Send Message</button>
         </div>
       </div>
@@ -146,7 +143,5 @@
       </div>
     </div>
   </footer>
-  <script src="/fe-script/homepage.js"></script>
-  <script src="/fe-script/profile.js"></script>
 </body>
 </html>

@@ -3,12 +3,10 @@ export function setupNavbar({searchBarId, bigSearchBarId} = {}) {
     if (token && token.startsWith("Bearer ")) {
         token = token.slice(7);
     }
-    const role = getCookie("role");
     const loginBtn = document.getElementById("login-btn");
     const logoutBtn = document.getElementById("logout-btn");
     const userBtn = document.getElementById("user-info-name");
     const adminBtn = document.getElementById("admin-btn");
-
     if(token){
         if (loginBtn) loginBtn.style.display = "none";
         if (logoutBtn) logoutBtn.style.display = "block";
@@ -26,11 +24,31 @@ export function setupNavbar({searchBarId, bigSearchBarId} = {}) {
         if(logoutBtn) logoutBtn.style.display = "none";
         if(userBtn) userBtn.style.display = "none";
     }
-    if (adminBtn) adminBtn.style.display = (role === "admin" ? "block" : "none");
-    if (userBtn) userBtn.addEventListener("click", () => window.location.href = "profile");
-    if (logoutBtn) logoutBtn.addEventListener("click", async () => {
+    if (userBtn) userBtn.addEventListener("click", async (event) => {
+        event.preventDefault();
         try{
-            const response = await fetch("/auth/logout", { method: "POST", headers: { "Content-Type": "application/json" } });
+            const response = await fetch(`/auth/user/me`, { method : "GET", headers: { "Content-Type": "application/json" }, credentials: 'include'});
+            const data = await response.json();
+            if (response.ok){
+                window.location.href = `/html/profile.html?user_id=${data.id}`;   
+            }
+            else if (response.status === 401){
+                const refreshToken = await fetch("/auth/refresh", { method : "GET", headers: { "Content-Type": "application/json" }, credentials: 'include'});
+                if (refreshToken.ok){
+                    return await fetch(`/auth/user/me`, { method : "GET", headers: { "Content-Type": "application/json" }, credentials: 'include'});
+                } else {
+                    window.location.href = "/html/login.html";
+                }
+            }
+        } catch (error){
+            console.log(error);
+        }
+    });
+    //if (adminBtn) adminBtn.style.display = (role === "admin" ? "block" : "none");
+    if (logoutBtn) logoutBtn.addEventListener("click", async (event) => {
+        event.preventDefault();
+        try{
+            const response = await fetch("/auth/logout", { method: "POST", headers: { "Content-Type": "application/json" }, credentials: 'include' });
             if (response.ok){
                 if (loginBtn) loginBtn.style.display = "block";
                 if(logoutBtn) logoutBtn.style.display = "none";
@@ -80,7 +98,8 @@ export function setupSearchBar(barId) {
                 item.className = "suggestion-item";
                 item.textContent = post.title;
                 item.style.cursor = "pointer";
-                item.onclick = () => {
+                item.onclick = (event) => {
+                    event.preventDefault();
                     window.location.href = "/html/news.html?title=" + encodeURIComponent(post.title);
                 };
                 suggestionsBox.appendChild(item);

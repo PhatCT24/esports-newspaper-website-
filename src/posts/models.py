@@ -1,11 +1,9 @@
 from src.auth.models import embeddedUserResponse
 
 def postEntity(post) -> dict:
-    # Ensure user_id is always a string
     user_id = post.get("user_id") or post.get("userID")
     if user_id is not None and not isinstance(user_id, str):
         user_id = str(user_id)
-    # Map createdAt/updatedAt to created_at/updated_at for API
     created_at = post.get("created_at") or post.get("createdAt")
     updated_at = post.get("updated_at") or post.get("updatedAt")
     return {
@@ -36,5 +34,4 @@ def populatedPostEntity(post) -> dict:
     }
 
 def postListEntity(posts) -> list:
-    # Accepts both a cursor and a list
     return [postEntity(post) for post in list(posts)]

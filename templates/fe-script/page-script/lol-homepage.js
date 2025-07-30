@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const createdAt = post.createdAt ? new Date(post.createdAt) : new Date();
                     const now = new Date();
                     const timeDiff = Math.floor((now - createdAt) / (1000 * 60 * 60));
-                    const author = post.userID?.username ? post.userID.username : "Unknown";
+                    const author = post.username;
 
                     const featured_news = document.createElement("div");
                     featured_news.className = "featured_news";
@@ -40,7 +40,23 @@ document.addEventListener("DOMContentLoaded", async () => {
                     featured_content.appendChild(news_uptime);
 
                     const news_link = document.createElement("a");
-                    news_link.href = `../html/news.html?_id=${post._id}`;
+                    news_link.href = `../html/news.html?post_id=${post.post_id}`;
+                    news_link.title = post.title;
+                    news_link.addEventListener("click", async (event) => {
+                        event.preventDefault();
+                        try{
+                            const res = await fetch(`/posts/${post.post_id}`, {
+                                method: "GET",
+                                headers: { "Content-Type": "application/json" }
+                            });
+                            const data = await res.json();
+                            console.log(data);
+                            window.location.href =`../html/news.html?post_id=${post.post_id}&title=${post.title}`;
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    });
+                    
                     
                     const news_title = document.createElement("h5");
                     news_title.textContent = post.title;
@@ -96,7 +112,21 @@ document.addEventListener("DOMContentLoaded", async () => {
                     text_section.appendChild(news_uptime)
 
                     const news_link = document.createElement("a");
-                    news_link.href = `../html/news.html?_id=${post._id}`;
+                    news_link.href = `../html/news.html?post_id=${post.post_id}`;
+                    news_link.addEventListener("click", async (event) => {
+                        event.preventDefault();
+                        try{
+                            const res = await fetch(`/posts/${post.post_id}`, {
+                                method: "GET",
+                                headers: { "Content-Type": "application/json" }
+                            });
+                            const data = await res.json();
+                            console.log(data);
+                            window.location.href =`../html/news.html?post_id=${post.post_id}&title=${post.title}`;
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    });
 
                     const news_title = document.createElement("h5");
                     news_title.textContent = post.title;
@@ -139,7 +169,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const createdAt = post.createdAt ? new Date(post.createdAt) : new Date();
                     const now = new Date();
                     const timeDiff = Math.floor((now - createdAt) / (1000 * 60 * 60));
-                    const author = post.userID?.username ? post.userID.username : "Unknown";
+                    const author = post.username;
 
 
                     const news_section_box_1 = document.
@@ -156,7 +186,21 @@ document.addEventListener("DOMContentLoaded", async () => {
                     news_section_box_1.appendChild(postStat);
 
                     const news_link = document.createElement("a");
-                    news_link.href = `../html/news.html?_id=${post._id}`;
+                    news_link.href = `../html/news.html?_id=${post.post_id}`;
+                    news_link.addEventListener("click", async (event) => {
+                        event.preventDefault();
+                        try{
+                            const res = await fetch(`/posts/${post.post_id}`, {
+                                method: "GET",
+                                headers: { "Content-Type": "application/json" }
+                            });
+                            const data = await res.json();
+                            console.log(data);
+                            window.location.href =`../html/news.html?post_id=${post.post_id}&title=${post.title}`;
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    });
                     
                     const news_title = document.createElement("h5");
                     news_title.textContent = post.title;
@@ -179,7 +223,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.log(error);
     }
 
-    //tournament news
+    //game updates news
     try{
         const response = await fetch("/posts/by-subcategory?subcategory=Game%20Updates&category=League%20of%20Legends", {
             method: "GET",
@@ -216,7 +260,21 @@ document.addEventListener("DOMContentLoaded", async () => {
                     news_section_box_1.appendChild(postStat);
 
                     const news_link = document.createElement("a");
-                    news_link.href = `../html/news.html?_id=${post._id}`;
+                    news_link.href = `../html/news.html?post_id=${post.post_id}`;
+                    news_link.addEventListener("click", async (event) => {
+                        event.preventDefault();
+                        try{
+                            const res = await fetch(`/posts/${post.post_id}`, {
+                                method: "GET",
+                                headers: { "Content-Type": "application/json" }
+                            });
+                            const data = await res.json();
+                            console.log(data);
+                            window.location.href =`../html/news.html?post_id=${post.post_id}&title=${post.title}`;
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    });
                     
                     const news_title = document.createElement("h5");
                     news_title.textContent = post.title;

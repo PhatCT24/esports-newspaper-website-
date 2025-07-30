@@ -48,3 +48,11 @@ class ForgotPasswordSchema(BaseModel):
     email: EmailStr
     password: constr(min_length=8)
     passwordConfirm: constr(min_length=8)
+
+class GetUserByIdSchema(BaseModel):
+    id: str
+    name: str 
+    email: EmailStr
+    photo: str | None = None
+    role: Literal["admin", "user"]
+    
