@@ -1,0 +1,192 @@
+document.addEventListener("DOMContentLoaded", () => {
+    // Step containers
+    const stepEmail = document.getElementById('step-email');
+    const stepOtp = document.getElementById('step-otp');
+    const stepNewPassword = document.getElementById('step-new-password');
+    const stepSuccess = document.getElementById('step-success');
+
+    // Forms and fields
+    const emailForm = document.getElementById('email-form');
+    const otpForm = document.getElementById('otp-form');
+    const passwordForm = document.getElementById('password-form');
+    const emailInput = document.getElementById('email');
+    const otpInputs = document.querySelectorAll('.otp-input');
+    const otpCodeInput = document.getElementById('otp-code');
+    const userEmailSpan = document.getElementById('user-email');
+    const resendCodeBtn = document.getElementById('resend-code');
+    const newPasswordInput = document.getElementById('new-password');
+    const confirmPasswordInput = document.getElementById('confirm-password');
+    const togglePasswordIcons = document.querySelectorAll('.toggle-password');
+
+    // Error messages
+    const emailError = document.getElementById('email-error');
+    const otpError = document.getElementById('otp-error');
+    const passwordError = document.getElementById('password-error');
+
+    // Password requirements
+    const reqLength = document.getElementById('req-length');
+    const reqUppercase = document.getElementById('req-uppercase');
+    const reqNumber = document.getElementById('req-number');
+
+    // State
+    let currentEmail = '';
+
+    // Helpers
+    function showStep(step) {
+        [stepEmail, stepOtp, stepNewPassword, stepSuccess].forEach(s => s.classList.add('hidden'));
+        step.classList.remove('hidden');
+    }
+    function clearErrors() {
+        emailError.textContent = '';
+        otpError.textContent = '';
+        passwordError.textContent = '';
+    }
+    function setOtpInputs(value = '') {
+        otpInputs.forEach(input => { input.value = value; });
+    }
+    function getOtpValue() {
+        return Array.from(otpInputs).map(input => input.value).join('');
+    }
+    function validatePassword(pw) {
+        const validLength = pw.length >= 8;
+        const validUpper = /[A-Z]/.test(pw);
+        const validNumber = /[0-9]/.test(pw);
+        reqLength.classList.toggle('valid', validLength);
+        reqUppercase.classList.toggle('valid', validUpper);
+        reqNumber.classList.toggle('valid', validNumber);
+        return validLength && validUpper && validNumber;
+    }
+
+    // Step 1: Send Verification Code
+    emailForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearErrors();
+        const email = emailInput.value.trim();
+        if (!email) {
+            emailError.textContent = 'Please enter your email.';
+            return;
+        }
+        emailForm.querySelector('.submit-btn').disabled = true;
+        try {
+            const res = await fetch('/api/auth/send-verification-code', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.detail || 'Failed to send verification code');
+            currentEmail = email;
+            userEmailSpan.textContent = email;
+            setOtpInputs();
+            showStep(stepOtp);
+            otpInputs[0].focus();
+        } catch (err) {
+            emailError.textContent = err.message;
+        } finally {
+            emailForm.querySelector('.submit-btn').disabled = false;
+        }
+    });
+
+
+    // Step 2: Verify OTP
+    otpForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearErrors();
+        const otp = getOtpValue();
+        if (otp.length !== 6) {
+            otpError.textContent = 'Please enter the 6-digit code.';
+            return;
+        }
+        otpForm.querySelector('.submit-btn').disabled = true;
+        try {
+            const res = await fetch('/api/auth/verify-code', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: currentEmail, code: otp })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.detail || 'Invalid or expired code');
+            showStep(stepNewPassword);
+            newPasswordInput.focus();
+        } catch (err) {
+            otpError.textContent = err.message;
+        } finally {
+            otpForm.querySelector('.submit-btn').disabled = false;
+        }
+    });
+
+    // Resend code
+    resendCodeBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        clearErrors();
+        try {
+            const res = await fetch('/api/auth/send-verification-code', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: currentEmail })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.detail || 'Failed to resend code');
+            otpError.textContent = 'Verification code resent!';
+            setOtpInputs();
+            otpInputs[0].focus();
+        } catch (err) {
+            otpError.textContent = err.message;
+        }
+    });
+
+    // Step 3: New Password
+    newPasswordInput.addEventListener('input', () => {
+        validatePassword(newPasswordInput.value);
+    });
+
+    // Toggle password visibility
+    togglePasswordIcons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            const input = icon.previousElementSibling;
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('ri-eye-line');
+                icon.classList.add('ri-eye-off-line');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('ri-eye-off-line');
+                icon.classList.add('ri-eye-line');
+            }
+        });
+    });
+
+    passwordForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearErrors();
+        const password = newPasswordInput.value;
+        const passwordConfirm = confirmPasswordInput.value;
+        if (!validatePassword(password)) {
+            passwordError.textContent = 'Password does not meet requirements.';
+            return;
+        }
+        if (password !== passwordConfirm) {
+            passwordError.textContent = 'Passwords do not match.';
+            return;
+        }
+        passwordForm.querySelector('.submit-btn').disabled = true;
+        try {
+            const res = await fetch('/api/auth/forgot-password', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: currentEmail, password, passwordConfirm })
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.detail || 'Failed to reset password');
+            showStep(stepSuccess);
+        } catch (err) {
+            passwordError.textContent = err.message;
+        } finally {
+            passwordForm.querySelector('.submit-btn').disabled = false;
+        }
+    });
+
+    // Initialize
+    showStep(stepEmail);
+    clearErrors();
+});

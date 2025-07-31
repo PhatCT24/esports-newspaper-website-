@@ -16,63 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-window.onload = () => {
-    // Try to get email from query string
-    const urlParams = new URLSearchParams(window.location.search);
-    let email = urlParams.get('email');
-    if (!email) {
-        // fallback to cookie if not found in query string
-        const token = getCookie("Authorization");
-        if (token) {
-            const userInfo = JSON.parse(atob(token.split('.')[1]));
-            email = userInfo.email;
-        }
-    }
-    if (!email) {
-        alert('Email not found for verification!');
-        return;
-    }
-    fetch('/auth/send-verification-code', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === "success") {
-            console.log("OTP sent successfully");
-        } else {
-            console.log("OTP Send Failed:", data.message);
-        }
-    })
-    .catch(error => {
-        console.error(error);
-    });
-};
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const verifyButton = document.getElementById('verify-btn');
+  document.getElementById('error-message').textContent = data.message;
   if (verifyButton) { 
     verifyButton.addEventListener('click', function (e) {
       e.preventDefault();
-
-      // Try to get email from query string
       const urlParams = new URLSearchParams(window.location.search);
       let email = urlParams.get('email');
-      if (!email) {
-          // fallback to cookie if not found in query string
-          const token = getCookie("Authorization");
-          if (token) {
-              const userInfo = JSON.parse(atob(token.split('.')[1]));
-              email = userInfo.email;
-          }
-      }
-      if (!email) {
-          alert('Email not found for verification!');
-          return;
-      }
       const otp = Array.from(document.querySelectorAll('.otp-input')).map(input => input.value).join('');
       fetch('/auth/verify-code', {
         method: 'POST', 
@@ -85,12 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(data => {
         if (data.status === "success") {
           alert('Verified successfully!');
+          const previous_page = document.referrer;
           setTimeout(() => {
-            console.log('Redirecting to homepage...');
-            window.location.href = "/";
+            if (previous_page === "/html/forgot-password.html") {
+                  window.location.href = "/html/login.html";
+            } else {
+                  window.location.href = "/html/confirm-password.html";
+            }
           }, 100);
-        } else {
-          alert('OTP Verified failed: ' + data.message);
+        } else {}
+          
         }
       })
       .catch(error => {

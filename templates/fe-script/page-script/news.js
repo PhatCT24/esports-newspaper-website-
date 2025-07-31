@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
     }
-    document.getElementById('body-container').innerHTML = '<div class="alert alert-danger">Post not found.</div>';
+    window.location.href = `../html/news.html?post_id=${postId}&title=${postTitle}`;
 });
 
 function renderPost(post) {

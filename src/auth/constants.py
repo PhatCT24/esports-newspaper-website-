@@ -1,5 +1,5 @@
-ACCESS_TOKEN_EXPIRES_IN = 60 * 24  # 24 hours, in minutes
-REFRESH_TOKEN_EXPIRES_IN = 60 * 24 * 7  # 7 days, in minutes
+ACCESS_TOKEN_EXPIRES_IN = 10 * 60 # 10 minutes, in minutes
+REFRESH_TOKEN_EXPIRES_IN = 60 * 24 * 3  # 3 days, in minutes
 OTP_LENGTH = 6
 OTP_EXPIRE_MINUTES = 3
 USER_ROLE_DEFAULT = 'user'

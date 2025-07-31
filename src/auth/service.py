@@ -41,7 +41,6 @@ async def user_register(payload: schemas.CreateUserSchema):
 
 #send-verification-code
 async def send_verification_code(payload: schemas.SendVerificationCodeSchema):
-
     user = User.find_one({"email": payload.email.lower()})
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
@@ -57,13 +56,12 @@ async def send_verification_code(payload: schemas.SendVerificationCodeSchema):
     return {"status": "success", "message": "Verification code sent to email."}
 
 
-#verify-code
+#verify-code-register
 async def verify_code(payload: schemas.VerifyUserSchema):
     user = User.find_one({"email": payload.email.lower()})
     if not user:
         raise HTTPException(404, detail="User not found")
     
-    # Inline verification code validation
     code_expires_at = user.get("code_expires_at")
     if not code_expires_at:
         User.delete_one({"_id": user["_id"]})
@@ -81,6 +79,7 @@ async def verify_code(payload: schemas.VerifyUserSchema):
     
     User.update_one({"_id": user["_id"]}, {"$set": {"verified": True}, "$unset": {"verification_code": "", "code_expires_at": ""}})
     return {"status": "success", "message": "User verified successfully"}
+
 
 #login
 async def login(payload: schemas.LoginUserSchema, response: Response):
